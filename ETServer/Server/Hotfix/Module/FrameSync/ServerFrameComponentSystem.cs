@@ -18,10 +18,10 @@ namespace ETHotfix
             self.Frame = 0;
             self.FrameMessage = new FrameMessage() {Frame = self.Frame};
 
-            self.UpdateFrameAsync();
+            self.UpdateFrameAsync().Coroutine();
         }
 
-        public static async void UpdateFrameAsync(this ServerFrameComponent self)
+        public static async ETVoid UpdateFrameAsync(this ServerFrameComponent self)
         {
             TimerComponent timerComponent = Game.Scene.GetComponent<TimerComponent>();
 
@@ -45,6 +45,7 @@ namespace ETHotfix
 
         public static void Add(this ServerFrameComponent self, OneFrameMessage oneFrameMessage)
         {
+            //Log.Info(oneFrameMessage.ToString());
             self.FrameMessage.Message.Add(oneFrameMessage);
         }
     }

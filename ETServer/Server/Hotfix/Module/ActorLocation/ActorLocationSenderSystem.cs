@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 using ETModel;
 
 namespace ETHotfix
@@ -11,25 +8,26 @@ namespace ETHotfix
     {
         public override void Awake(ActorLocationSender self)
         {
-            self.LastSendTime = TimeHelper.Now();
+            self.LastRecvTime = TimeHelper.Now();
             self.Tcs = null;
             self.FailTimes = 0;
             self.ActorId = 0;
+            self.WaitingTasks.Clear();
         }
     }
 
     [ObjectSystem]
     public class ActorLocationSenderStartSystem : StartSystem<ActorLocationSender>
     {
-        public override async void Start(ActorLocationSender self)
+	    public override void Start(ActorLocationSender self)
+	    {
+		    StartAsync(self).Coroutine();
+	    }
+	    
+        public async ETVoid StartAsync(ActorLocationSender self)
         {
             self.ActorId = await Game.Scene.GetComponent<LocationProxyComponent>().Get(self.Id);
-
-            self.Address = StartConfigComponent.Instance
-                    .Get(IdGenerater.GetAppIdFromId(self.ActorId))
-                    .GetComponent<InnerConfig>().IPEndPoint;
-
-            self.UpdateAsync();
+            self.UpdateAsync().Coroutine();
         }
     }
 	
@@ -41,10 +39,10 @@ namespace ETHotfix
 	        self.RunError(ErrorCode.ERR_ActorRemove);
 	        
             self.Id = 0;
-            self.LastSendTime = 0;
-            self.Address = null;
+            self.LastRecvTime = 0;
             self.ActorId = 0;
             self.FailTimes = 0;
+            self.WaitingTasks.Clear();
             self.Tcs = null;
         }
     }
@@ -90,41 +88,43 @@ namespace ETHotfix
 			t.SetResult(task);
 		}
 
-		private static Task<ActorTask> GetAsync(this ActorLocationSender self)
+		private static ETTask<ActorTask> GetAsync(this ActorLocationSender self)
 		{
 			if (self.WaitingTasks.Count > 0)
 			{
 				ActorTask task = self.WaitingTasks.Peek();
-				return Task.FromResult(task);
+				return ETTask.FromResult(task);
 			}
 
-			self.Tcs = new TaskCompletionSource<ActorTask>();
+			self.Tcs = new ETTaskCompletionSource<ActorTask>();
 			return self.Tcs.Task;
 		}
 
-		public static async void UpdateAsync(this ActorLocationSender self)
+		public static async ETVoid UpdateAsync(this ActorLocationSender self)
 		{
 			try
 			{
 				long instanceId = self.InstanceId;
 				while (true)
 				{
-					if (self.InstanceId != instanceId)
-					{
-						return;
-					}
 					ActorTask actorTask = await self.GetAsync();
 					
 					if (self.InstanceId != instanceId)
 					{
 						return;
 					}
+					
 					if (actorTask.ActorRequest == null)
 					{
 						return;
 					}
 
 					await self.RunTask(actorTask);
+					
+					if (self.InstanceId != instanceId)
+					{
+						return;
+					}
 				}
 			}
 			catch (Exception e)
@@ -133,10 +133,22 @@ namespace ETHotfix
 			}
 		}
 
-		private static async Task RunTask(this ActorLocationSender self, ActorTask task)
+		private static async ETTask RunTask(this ActorLocationSender self, ActorTask task)
 		{
 			ActorMessageSender actorMessageSender = Game.Scene.GetComponent<ActorMessageSenderComponent>().Get(self.ActorId);
-			IActorResponse response = await actorMessageSender.Call(task.ActorRequest);
+			IActorResponse response;
+			try
+			{
+				// 这里必须使用不抛异常的rpc，因为服务端handler很可能出现错误，返回一个rpc fail的错误，结果这里抛了异常
+				// 这里抛了异常就会导致队列中的消息无法继续发送，导致整个actorlocationsender堵塞
+				response = await actorMessageSender.CallWithoutException(task.ActorRequest);
+			}
+			catch (Exception e)
+			{
+				self.GetParent<ActorLocationSenderComponent>().Remove(self.Id);
+				return;
+			}
+			
 			
 			// 发送成功
 			switch (response.Error)
@@ -158,9 +170,6 @@ namespace ETHotfix
 					// 等待0.5s再发送
 					await Game.Scene.GetComponent<TimerComponent>().WaitAsync(500);
 					self.ActorId = await Game.Scene.GetComponent<LocationProxyComponent>().Get(self.Id);
-					self.Address = StartConfigComponent.Instance
-							.Get(IdGenerater.GetAppIdFromId(self.ActorId))
-							.GetComponent<InnerConfig>().IPEndPoint;
 					self.AllowGet();
 					return;
 				
@@ -170,21 +179,25 @@ namespace ETHotfix
 					return;
 				
 				default:
-					self.LastSendTime = TimeHelper.Now();
+					self.LastRecvTime = TimeHelper.Now();
 					self.FailTimes = 0;
 					self.WaitingTasks.Dequeue();
-					
-					if (task.Tcs == null)
+
+					// 如果所有的发送消息都得到了返回，发送任务完成，那么删除这个ActorLocationSender，及时回收发送对象
+					if (self.WaitingTasks.Count == 0)
 					{
-						return;
+						self.GetParent<ActorLocationSenderComponent>().Remove(self.Id);
 					}
 					
-					IActorLocationResponse actorLocationResponse = response as IActorLocationResponse;
-					if (actorLocationResponse == null)
+					if (task.Tcs != null)
 					{
-						task.Tcs.SetException(new Exception($"actor location respose is not IActorLocationResponse, but is: {response.GetType().Name}"));
+						IActorLocationResponse actorLocationResponse = response as IActorLocationResponse;
+						if (actorLocationResponse == null)
+						{
+							task.Tcs.SetException(new Exception($"actor location respose is not IActorLocationResponse, but is: {response.GetType().Name}"));
+						}
+						task.Tcs.SetResult(actorLocationResponse);
 					}
-					task.Tcs.SetResult(actorLocationResponse);
 					return;
 			}
 		}
@@ -199,13 +212,13 @@ namespace ETHotfix
 		    self.Add(task);
 	    }
 
-		public static Task<IActorLocationResponse> Call(this ActorLocationSender self, IActorLocationRequest request)
+		public static ETTask<IActorLocationResponse> Call(this ActorLocationSender self, IActorLocationRequest request)
 		{
 			if (request == null)
 			{
 				throw new Exception($"actor location call message is null");
 			}
-			TaskCompletionSource<IActorLocationResponse> tcs = new TaskCompletionSource<IActorLocationResponse>();
+			ETTaskCompletionSource<IActorLocationResponse> tcs = new ETTaskCompletionSource<IActorLocationResponse>();
 			ActorTask task = new ActorTask(request, tcs);
 			self.Add(task);
 			return task.Tcs.Task;

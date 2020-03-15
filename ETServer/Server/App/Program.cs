@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Net;
 using System.Threading;
 using ETModel;
 using NLog;
@@ -16,7 +14,7 @@ namespace App
 			
 			try
 			{			
-				Game.EventSystem.Add(DLLType.Core, typeof(Game).Assembly);
+				Game.EventSystem.Add(DLLType.Model, typeof(Game).Assembly);
 				Game.EventSystem.Add(DLLType.Hotfix, DllHelper.GetHotfixAssembly());
 
 				Options options = Game.Scene.AddComponent<OptionComponent, string[]>(args).Options;
@@ -30,47 +28,58 @@ namespace App
 
 				IdGenerater.AppId = options.AppId;
 
-				LogManager.Configuration.Variables["appType"] = startConfig.AppType.ToString();
-				LogManager.Configuration.Variables["appId"] = startConfig.AppId.ToString();
-				LogManager.Configuration.Variables["appTypeFormat"] = $"{startConfig.AppType,-8}";
-				LogManager.Configuration.Variables["appIdFormat"] = $"{startConfig.AppId:D3}";
+				LogManager.Configuration.Variables["appType"] = $"{startConfig.AppType}";
+				LogManager.Configuration.Variables["appId"] = $"{startConfig.AppId}";
+				LogManager.Configuration.Variables["appTypeFormat"] = $"{startConfig.AppType, -8}";
+				LogManager.Configuration.Variables["appIdFormat"] = $"{startConfig.AppId:0000}";
 
 				Log.Info($"server start........................ {startConfig.AppId} {startConfig.AppType}");
 
+				Game.Scene.AddComponent<TimerComponent>();
 				Game.Scene.AddComponent<OpcodeTypeComponent>();
-				Game.Scene.AddComponent<MessageDispatherComponent>();
+				Game.Scene.AddComponent<MessageDispatcherComponent>();
 
 				// 根据不同的AppType添加不同的组件
 				OuterConfig outerConfig = startConfig.GetComponent<OuterConfig>();
 				InnerConfig innerConfig = startConfig.GetComponent<InnerConfig>();
 				ClientConfig clientConfig = startConfig.GetComponent<ClientConfig>();
 				
-				switch (startConfig.AppType)
-				{
-					case AppType.AllServer:
-						Game.Scene.AddComponent<ActorMessageSenderComponent>();
-						Game.Scene.AddComponent<ActorLocationSenderComponent>();
+				// 发送普通actor消息
+				Game.Scene.AddComponent<ActorMessageSenderComponent>();
+				// 发送location actor消息
+				Game.Scene.AddComponent<ActorLocationSenderComponent>();
+				
+				
+				// location server需要的组件
+				Game.Scene.AddComponent<LocationComponent>();
+				// 访问location server的组件
+				Game.Scene.AddComponent<LocationProxyComponent>();
+				
+				// 这两个组件是处理actor消息使用的
+				Game.Scene.AddComponent<MailboxDispatcherComponent>();
+				Game.Scene.AddComponent<ActorMessageDispatcherComponent>();
+				
+				// 内网消息组件
+				Game.Scene.AddComponent<NetInnerComponent, string>(innerConfig.Address);
+				// 外网消息组件
+				Game.Scene.AddComponent<NetOuterComponent, string>(outerConfig.Address);
+				
+				// manager server组件，用来管理其它进程使用
+				Game.Scene.AddComponent<AppManagerComponent>();
+				Game.Scene.AddComponent<RealmGateAddressComponent>();
+				Game.Scene.AddComponent<GateSessionKeyComponent>();
+				
+				Game.Scene.AddComponent<PlayerComponent>();
+				Game.Scene.AddComponent<UnitComponent>();
 
-						Game.Scene.AddComponent<PlayerComponent>();
-						Game.Scene.AddComponent<UnitComponent>();
+				// 配置管理
+				Game.Scene.AddComponent<ConfigComponent>();
+				Game.Scene.AddComponent<ConsoleComponent>();
 
-						Game.Scene.AddComponent<LocationComponent>();
-						Game.Scene.AddComponent<ActorMessageDispatherComponent>();
-
-						Game.Scene.AddComponent<NetInnerComponent, string>(innerConfig.Address);
-						Game.Scene.AddComponent<NetOuterComponent, string>(outerConfig.Address);
-
-						Game.Scene.AddComponent<LocationProxyComponent>();
-						Game.Scene.AddComponent<AppManagerComponent>();
-						Game.Scene.AddComponent<RealmGateAddressComponent>();
-						Game.Scene.AddComponent<GateSessionKeyComponent>();
-						Game.Scene.AddComponent<ConfigComponent>();
-						Game.Scene.AddComponent<ServerFrameComponent>();
-						break;
-					default:
-						throw new Exception($"命令行参数没有设置正确的AppType: {startConfig.AppType}");
-				}
-
+				// 网络同步方式组件
+				Game.Scene.AddComponent<ServerFrameComponent>();
+				
+				
 				while (true)
 				{
 					try

@@ -7,9 +7,11 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Server/App/ETServer.App.csproj"
+                "${workspaceFolder}/Server/App/Server.App.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
             ],
-            "problemMatcher": "$tsc"
+            "problemMatcher": "$msCompile"
         },
         {
             "label": "publish",
@@ -17,9 +19,11 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/Server/App/ETServer.App.csproj"
+                "${workspaceFolder}/Server/App/Server.App.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
             ],
-            "problemMatcher": "$tsc"
+            "problemMatcher": "$msCompile"
         },
         {
             "label": "watch",
@@ -28,9 +32,11 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/Server/App/ETServer.App.csproj"
+                "${workspaceFolder}/Server/App/Server.App.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
             ],
-            "problemMatcher": "$tsc"
+            "problemMatcher": "$msCompile"
         }
     ]
 }

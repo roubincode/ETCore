@@ -22,7 +22,7 @@ namespace ETHotfix
         }
     }
     
-    public static class ConfigComponentEX
+    public static class ConfigComponentHelper
 	{
 		public static void Awake(this ConfigComponent self)
 		{

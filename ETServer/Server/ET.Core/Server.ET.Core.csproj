@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <AssemblyName>Core</AssemblyName>
+    <AssemblyName>ET.Core</AssemblyName>
     <RootNamespace>ET.Core</RootNamespace>
     <LangVersion>7.3</LangVersion>
   </PropertyGroup>

@@ -1,6 +1,9 @@
 # ETCore
 包含C#游戏框架ETServer的服务器、客户端独立版本，基于泰课在线维护的ETCore（不包含热更新模块）。 
-ETServer&Client base on ET.Core by taikr.com
+ETServer&Client base on ET.Core by taikr.com   
+ETCore是由泰课在线维护的 ETServer游戏服务器开发框架的版本。     
+ETCore将前后端项目代码进行了分离，Server与Client各为独立可运行版本。    
+去掉了热更新模块。  
 
 ## ETCore运行使用方法
 1 安装.net sdk  
@@ -18,10 +21,8 @@ ETServer&Client base on ET.Core by taikr.com
 __讨论QQ群 : 474643097__
 
 # ETCore4.0发布!  
-1.ETCore是由泰课在线维护的 ETServer游戏服务器开发框架的版本，ETCore4.0即是基于ETServer4.0版本。 
-2.ETCore将前后端项目代码进行了分离，Server与Client各为独立可运行版本。  
-3.去掉了热更新模块。
-4.前后端都基于代码相同的ET.Core，而不是像原框架那样在服务端项目中引用部分前端代码，这样能逻辑结构与思维更清楚的共享核心的事件，组件，网络模块代码。
+1.ETCore4.0即是基于ETServer4.0版本。   
+2.前后端都基于代码相同的ET.Core，而不是像原框架那样在服务端项目中引用部分前端代码，这样能逻辑结构与思维更清楚的共享核心的事件，组件，网络模块代码。  
 
 ## ETServer c#游戏服务器框架
 这是肉饼负责维护的一个ET框架的纯服务器版本，同步原框架更新。  

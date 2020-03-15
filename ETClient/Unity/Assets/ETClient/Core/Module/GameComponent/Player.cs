@@ -19,7 +19,7 @@
 		}
 		
 	}
-#endif	
+#endif
 	public sealed class Player : Entity
 	{
 		

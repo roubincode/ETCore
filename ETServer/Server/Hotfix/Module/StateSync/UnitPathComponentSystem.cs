@@ -8,25 +8,6 @@ namespace ETHotfix
 {
     public static class UnitPathComponentHelper
     {
-        public static async ETTask MoveAsync(this UnitPathComponent self, List<Vector3> path)
-        {
-            if (path.Count == 0)
-            {
-                return;
-            }
-            // 第一个点是unit的当前位置，所以不用发送
-            for (int i = 1; i < path.Count; ++i)
-            {
-                // 每移动3个点发送下3个点给客户端
-                if (i % 3 == 1)
-                {
-                    self.BroadcastPath(path, i, 3);
-                }
-                Vector3 v3 = path[i];
-                await self.Entity.GetComponent<MoveComponent>().MoveToAsync(v3, self.CancellationTokenSource.Token);
-            }
-        }
-        
         public static async ETVoid MoveTo(this UnitPathComponent self, Vector3 target)
         {
             if ((self.Target - target).magnitude < 0.1f)
@@ -49,6 +30,25 @@ namespace ETHotfix
             await self.MoveAsync(self.ABPath.Result);
             self.CancellationTokenSource.Dispose();
             self.CancellationTokenSource = null;
+        }
+
+        public static async ETTask MoveAsync(this UnitPathComponent self, List<Vector3> path)
+        {
+            if (path.Count == 0)
+            {
+                return;
+            }
+            // 第一个点是unit的当前位置，所以不用发送
+            for (int i = 1; i < path.Count; ++i)
+            {
+                // 每移动3个点发送下3个点给客户端
+                if (i % 3 == 1)
+                {
+                    self.BroadcastPath(path, i, 3);
+                }
+                Vector3 v3 = path[i];
+                await self.Entity.GetComponent<MoveComponent>().MoveToAsync(v3, self.CancellationTokenSource.Token);
+            }
         }
 
         // 从index找接下来3个点，广播

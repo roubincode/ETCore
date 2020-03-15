@@ -6531,11 +6531,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\App\\Server.App.csproj",
+      "projectUniqueName": "C:\\Data\\ET06_state\\ETServer5.0_03\\Server\\App\\Server.App.csproj",
       "projectName": "App",
-      "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\App\\Server.App.csproj",
+      "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_03\\Server\\App\\Server.App.csproj",
       "packagesPath": "C:\\Users\\Rman-xvr\\.nuget\\packages\\",
-      "outputPath": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\App\\obj\\",
+      "outputPath": "C:\\Data\\ET06_state\\ETServer5.0_03\\Server\\App\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6552,8 +6552,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\Model\\Server.Model.csproj": {
-              "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\Model\\Server.Model.csproj"
+            "C:\\Data\\ET06_state\\ETServer5.0_03\\Server\\Model\\Server.Model.csproj": {
+              "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_03\\Server\\Model\\Server.Model.csproj"
             }
           }
         }

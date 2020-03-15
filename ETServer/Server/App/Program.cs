@@ -48,8 +48,7 @@ namespace App
 				Game.Scene.AddComponent<ActorMessageSenderComponent>();
 				// 发送location actor消息
 				Game.Scene.AddComponent<ActorLocationSenderComponent>();
-				
-				
+					
 				// location server需要的组件
 				Game.Scene.AddComponent<LocationComponent>();
 				// 访问location server的组件
@@ -76,8 +75,8 @@ namespace App
 				Game.Scene.AddComponent<ConfigComponent>();
 				Game.Scene.AddComponent<ConsoleComponent>();
 
-				// recast寻路组件
-				Game.Scene.AddComponent<PathfindingComponent>();
+				// 网络同步方式组件
+				Game.Scene.AddComponent<NetSyncComponent,SyncType>(SyncType.State);
 				
 				
 				while (true)

@@ -6562,11 +6562,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\Model\\Server.Model.csproj",
+      "projectUniqueName": "C:\\Data\\ET06_state\\ETServer5.0_03\\Server\\Model\\Server.Model.csproj",
       "projectName": "Model",
-      "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\Model\\Server.Model.csproj",
+      "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_03\\Server\\Model\\Server.Model.csproj",
       "packagesPath": "C:\\Users\\Rman-xvr\\.nuget\\packages\\",
-      "outputPath": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\Model\\obj\\",
+      "outputPath": "C:\\Data\\ET06_state\\ETServer5.0_03\\Server\\Model\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6583,20 +6583,20 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\Google.Protobuf\\Google.Protobuf.csproj": {
-              "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\Google.Protobuf\\Google.Protobuf.csproj"
+            "C:\\Data\\ET06_state\\ETServer5.0_03\\Server\\ThirdParty\\Google.Protobuf\\Google.Protobuf.csproj": {
+              "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_03\\Server\\ThirdParty\\Google.Protobuf\\Google.Protobuf.csproj"
             },
-            "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\KcpLib\\KcpLib.csproj": {
-              "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\KcpLib\\KcpLib.csproj"
+            "C:\\Data\\ET06_state\\ETServer5.0_03\\Server\\ThirdParty\\KcpLib\\KcpLib.csproj": {
+              "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_03\\Server\\ThirdParty\\KcpLib\\KcpLib.csproj"
             },
-            "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Bson\\MongoDB.Bson.csproj": {
-              "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Bson\\MongoDB.Bson.csproj"
+            "C:\\Data\\ET06_state\\ETServer5.0_03\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Bson\\MongoDB.Bson.csproj": {
+              "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_03\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Bson\\MongoDB.Bson.csproj"
             },
-            "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.Core\\MongoDB.Driver.Core.csproj": {
-              "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.Core\\MongoDB.Driver.Core.csproj"
+            "C:\\Data\\ET06_state\\ETServer5.0_03\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.Core\\MongoDB.Driver.Core.csproj": {
+              "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_03\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.Core\\MongoDB.Driver.Core.csproj"
             },
-            "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver\\MongoDB.Driver.csproj": {
-              "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver\\MongoDB.Driver.csproj"
+            "C:\\Data\\ET06_state\\ETServer5.0_03\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver\\MongoDB.Driver.csproj": {
+              "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_03\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver\\MongoDB.Driver.csproj"
             }
           }
         }

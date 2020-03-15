@@ -33,7 +33,7 @@ namespace ETModel
 		    this.mapMask = LayerMask.GetMask("Map");
 	    }
 
-	    private readonly Frame_ClickMap frameClickMap = new Frame_ClickMap();
+	    private readonly State_ClickMap frameClickMap = new State_ClickMap();
 
         public void Update()
         {

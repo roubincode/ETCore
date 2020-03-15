@@ -1,6 +1,5 @@
 ﻿using System;
 using ETModel;
-using PF;
 using UnityEngine;
 
 namespace ETHotfix
@@ -11,10 +10,14 @@ namespace ETHotfix
 		protected override async ETTask Run(Session session, G2M_CreateUnit request, M2G_CreateUnit response, Action reply)
 		{
 			Unit unit = ComponentFactory.CreateWithId<Unit>(IdGenerater.GenerateId());
-			unit.AddComponent<MoveComponent>();
-			unit.AddComponent<UnitPathComponent>();
 			unit.Position = new Vector3(-10, 0, -10);
-			
+
+			SyncType type = Game.Scene.GetComponent<NetSyncComponent>().type;
+			if(type == SyncType.State){
+				unit.AddComponent<MoveComponent>();
+				unit.AddComponent<UnitPathComponent>();
+			}
+
 			await unit.AddComponent<MailBoxComponent>().AddLocation();
 			unit.AddComponent<UnitGateComponent, long>(request.GateSessionId);
 			Game.Scene.GetComponent<UnitComponent>().Add(unit);

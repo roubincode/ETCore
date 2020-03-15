@@ -22,7 +22,8 @@ __讨论QQ群 : 474643097__
 
 # ETCore5.0发布!  
 1.ETCore5.0即是基于ETServer5.0版本。   
-2.在ETServer5.0中增加了帧同步demo。 
+2.在ETServer5.0中增加了帧同步demo。   
+3.加入了UI组件demo中的登录界面使用UI组件了。
 
 # ETCore4.0发布!  
 1.ETCore4.0即是基于ETServer4.0版本。   

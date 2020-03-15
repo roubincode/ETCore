@@ -76,8 +76,8 @@ namespace App
 				Game.Scene.AddComponent<ConfigComponent>();
 				Game.Scene.AddComponent<ConsoleComponent>();
 
-				// 网络同步方式组件
-				Game.Scene.AddComponent<ServerFrameComponent>();
+				// recast寻路组件
+				Game.Scene.AddComponent<PathfindingComponent>();
 				
 				
 				while (true)

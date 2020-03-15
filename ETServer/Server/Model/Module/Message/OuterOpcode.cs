@@ -28,7 +28,10 @@ namespace ETModel
 	public partial class M2C_CreateUnits : IActorMessage {}
 
 	[Message(OuterOpcode.Frame_ClickMap)]
-	public partial class Frame_ClickMap : IFrameMessage { }
+	public partial class Frame_ClickMap : IActorLocationMessage {}
+
+	[Message(OuterOpcode.M2C_PathfindingResult)]
+	public partial class M2C_PathfindingResult : IActorMessage {}
 
 	[Message(OuterOpcode.C2R_Ping)]
 	public partial class C2R_Ping : IRequest {}
@@ -59,6 +62,7 @@ namespace ETModel
 		 public const ushort UnitInfo = 107;
 		 public const ushort M2C_CreateUnits = 108;
 		 public const ushort Frame_ClickMap = 109;
+		 public const ushort M2C_PathfindingResult = 110;
 		 public const ushort C2R_Ping = 111;
 		 public const ushort R2C_Ping = 112;
 		 public const ushort G2C_Test = 113;

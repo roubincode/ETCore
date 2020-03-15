@@ -14,11 +14,12 @@ namespace ETModel
             
 	        GameObject go = UnityEngine.Object.Instantiate(prefab);
 	        Unit unit = ComponentFactory.CreateWithId<Unit, GameObject>(id, go);
-	        unit.AddComponent<AnimatorComponent>();
+	        
+			unit.AddComponent<AnimatorComponent>();
+	        unit.AddComponent<MoveComponent>();
+	        unit.AddComponent<TurnComponent>();
+	        unit.AddComponent<UnitPathComponent>();
 
-	        unit.AddComponent<FrameMoveComponent>();
-            
-		
             unitComponent.Add(unit);
             return unit;
         }

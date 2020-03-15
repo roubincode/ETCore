@@ -1,4 +1,3 @@
-#if !SERVER
 using UnityEngine;
 
 namespace ETModel
@@ -8,4 +7,3 @@ namespace ETModel
         public object Component { get; set; }
     }
 }
-#endif

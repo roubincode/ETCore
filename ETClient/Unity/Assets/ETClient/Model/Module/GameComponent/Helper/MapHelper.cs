@@ -24,8 +24,8 @@ namespace ETModel
                 G2C_EnterMap g2CEnterMap = await ETModel.SessionComponent.Instance.Session.Call(new C2G_EnterMap()) as G2C_EnterMap;
                 PlayerComponent.Instance.MyPlayer.UnitId = g2CEnterMap.UnitId;
 				
-                Game.Scene.AddComponent<FrameOperaComponent>();
-                
+                Game.Scene.AddComponent<OperaComponent>();
+				
                 Game.EventSystem.Run(EventIdType.EnterMapFinish);
             }
             catch (Exception e)

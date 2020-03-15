@@ -128,7 +128,6 @@ namespace ETModel
 		private void Run(MemoryStream memoryStream)
 		{
 			memoryStream.Seek(Packet.MessageIndex, SeekOrigin.Begin);
-			byte flag = memoryStream.GetBuffer()[Packet.OpcodeIndex];
 			ushort opcode = BitConverter.ToUInt16(memoryStream.GetBuffer(), Packet.OpcodeIndex);
 			
 // #if !SERVER
@@ -165,14 +164,7 @@ namespace ETModel
 				this.Network.MessageDispatcher.Dispatch(this, opcode, message);
 				return;
 			}
-
-			// flag第一位为1表示这是rpc返回消息,否则交由MessageDispatcher分发
-			//if (flag == 109)
-			//{
-			//	this.Network.MessageDispatcher.Dispatch(this, opcode, message);
-			//	return;
-			//}
-
+			
 			Action<IResponse> action;
 			if (!this.requestCallback.TryGetValue(response.RpcId, out action))
 			{

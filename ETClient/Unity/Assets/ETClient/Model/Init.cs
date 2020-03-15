@@ -47,9 +47,6 @@ namespace ETModel
 				UnitConfig unitConfig = (UnitConfig)Game.Scene.GetComponent<ConfigComponent>().Get(typeof(UnitConfig), 1001);
 				Log.Debug($"config {JsonHelper.ToJson(unitConfig)}");
 
-				// 网络同步方式组件
-				Game.Scene.AddComponent<ClientFrameComponent>();
-
 				//Game.Hotfix.GotoHotfix();
 
 				Game.EventSystem.Run(EventIdType.InitSceneStart);

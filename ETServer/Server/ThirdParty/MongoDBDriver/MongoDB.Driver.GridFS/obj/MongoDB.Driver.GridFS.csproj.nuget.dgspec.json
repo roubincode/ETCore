@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.GridFS\\MongoDB.Driver.GridFS.csproj": {}
+    "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.GridFS\\MongoDB.Driver.GridFS.csproj": {}
   },
   "projects": {
-    "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Bson\\MongoDB.Bson.csproj": {
+    "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Bson\\MongoDB.Bson.csproj": {
       "version": "0.0.0-local",
       "restore": {
-        "projectUniqueName": "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Bson\\MongoDB.Bson.csproj",
+        "projectUniqueName": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Bson\\MongoDB.Bson.csproj",
         "projectName": "MongoDB.Bson",
-        "projectPath": "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Bson\\MongoDB.Bson.csproj",
+        "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Bson\\MongoDB.Bson.csproj",
         "packagesPath": "C:\\Users\\Rman-xvr\\.nuget\\packages\\",
-        "outputPath": "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Bson\\obj\\",
+        "outputPath": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Bson\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -63,14 +63,14 @@
         }
       }
     },
-    "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.Core\\MongoDB.Driver.Core.csproj": {
+    "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.Core\\MongoDB.Driver.Core.csproj": {
       "version": "0.0.0-local",
       "restore": {
-        "projectUniqueName": "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.Core\\MongoDB.Driver.Core.csproj",
+        "projectUniqueName": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.Core\\MongoDB.Driver.Core.csproj",
         "projectName": "MongoDB.Driver.Core",
-        "projectPath": "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.Core\\MongoDB.Driver.Core.csproj",
+        "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.Core\\MongoDB.Driver.Core.csproj",
         "packagesPath": "C:\\Users\\Rman-xvr\\.nuget\\packages\\",
-        "outputPath": "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.Core\\obj\\",
+        "outputPath": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -87,8 +87,8 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Bson\\MongoDB.Bson.csproj": {
-                "projectPath": "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Bson\\MongoDB.Bson.csproj"
+              "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Bson\\MongoDB.Bson.csproj": {
+                "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Bson\\MongoDB.Bson.csproj"
               }
             }
           }
@@ -130,14 +130,14 @@
         }
       }
     },
-    "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.GridFS\\MongoDB.Driver.GridFS.csproj": {
+    "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.GridFS\\MongoDB.Driver.GridFS.csproj": {
       "version": "0.0.0-local",
       "restore": {
-        "projectUniqueName": "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.GridFS\\MongoDB.Driver.GridFS.csproj",
+        "projectUniqueName": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.GridFS\\MongoDB.Driver.GridFS.csproj",
         "projectName": "MongoDB.Driver.GridFS",
-        "projectPath": "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.GridFS\\MongoDB.Driver.GridFS.csproj",
+        "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.GridFS\\MongoDB.Driver.GridFS.csproj",
         "packagesPath": "C:\\Users\\Rman-xvr\\.nuget\\packages\\",
-        "outputPath": "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.GridFS\\obj\\",
+        "outputPath": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.GridFS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -154,14 +154,14 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Bson\\MongoDB.Bson.csproj": {
-                "projectPath": "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Bson\\MongoDB.Bson.csproj"
+              "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Bson\\MongoDB.Bson.csproj": {
+                "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Bson\\MongoDB.Bson.csproj"
               },
-              "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.Core\\MongoDB.Driver.Core.csproj": {
-                "projectPath": "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.Core\\MongoDB.Driver.Core.csproj"
+              "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.Core\\MongoDB.Driver.Core.csproj": {
+                "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.Core\\MongoDB.Driver.Core.csproj"
               },
-              "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver\\MongoDB.Driver.csproj": {
-                "projectPath": "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver\\MongoDB.Driver.csproj"
+              "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver\\MongoDB.Driver.csproj": {
+                "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver\\MongoDB.Driver.csproj"
               }
             }
           }
@@ -199,14 +199,14 @@
         }
       }
     },
-    "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver\\MongoDB.Driver.csproj": {
+    "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver\\MongoDB.Driver.csproj": {
       "version": "0.0.0-local",
       "restore": {
-        "projectUniqueName": "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver\\MongoDB.Driver.csproj",
+        "projectUniqueName": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver\\MongoDB.Driver.csproj",
         "projectName": "MongoDB.Driver",
-        "projectPath": "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver\\MongoDB.Driver.csproj",
+        "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver\\MongoDB.Driver.csproj",
         "packagesPath": "C:\\Users\\Rman-xvr\\.nuget\\packages\\",
-        "outputPath": "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver\\obj\\",
+        "outputPath": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -223,11 +223,11 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Bson\\MongoDB.Bson.csproj": {
-                "projectPath": "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Bson\\MongoDB.Bson.csproj"
+              "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Bson\\MongoDB.Bson.csproj": {
+                "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Bson\\MongoDB.Bson.csproj"
               },
-              "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.Core\\MongoDB.Driver.Core.csproj": {
-                "projectPath": "C:\\Data\\ET05_frame\\ETServer5.0_01\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.Core\\MongoDB.Driver.Core.csproj"
+              "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.Core\\MongoDB.Driver.Core.csproj": {
+                "projectPath": "C:\\Data\\ET06_state\\ETServer5.0_02\\Server\\ThirdParty\\MongoDBDriver\\MongoDB.Driver.Core\\MongoDB.Driver.Core.csproj"
               }
             }
           }

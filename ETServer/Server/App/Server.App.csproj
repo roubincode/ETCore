@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Model\Server.Model.csproj" />
+    <ProjectReference Include="..\ET.Core\Server.ET.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

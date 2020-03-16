@@ -17,6 +17,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core\ETServer.Core.csproj" />
+    <ProjectReference Include="..\ET.Core\Server.ET.Core.csproj" />
   </ItemGroup>
 </Project>

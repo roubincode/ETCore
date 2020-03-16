@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <AssemblyName>ETServer.Core</AssemblyName>
-    <RootNamespace>ETModel</RootNamespace>
+    <AssemblyName>ET.Core</AssemblyName>
+    <RootNamespace>ET.Core</RootNamespace>
   </PropertyGroup>
   <PropertyGroup>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>

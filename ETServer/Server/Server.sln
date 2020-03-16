@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ETServer.App", "App\ETServer.App.csproj", "{11464C2C-E0B6-476E-ABB1-87445E736B76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server.App", "App\Server.App.csproj", "{11464C2C-E0B6-476E-ABB1-87445E736B76}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ETServer.Hotfix", "Hotfix\ETServer.Hotfix.csproj", "{E383A68D-1928-46F4-8896-4E99DF331476}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server.Hotfix", "Hotfix\Server.Hotfix.csproj", "{E383A68D-1928-46F4-8896-4E99DF331476}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ETServer.Core", "Core\ETServer.Core.csproj", "{85CB09B5-6392-4A13-BAF8-025218BFF496}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server.ET.Core", "ET.Core\Server.ET.Core.csproj", "{85CB09B5-6392-4A13-BAF8-025218BFF496}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThirdParty", "ThirdParty", "{5D11E730-0CAA-4A47-BA1A-379004F0F6D9}"
 EndProject

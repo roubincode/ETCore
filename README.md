@@ -9,7 +9,7 @@ ETCore将前后端项目代码进行了分离，Server与Client各为独立可�
 1 安装.net sdk  
 2 通过vs installer安装 .net framework (共享组件需要安装在C盘)  
 3 安装vs code 和vs code c#扩展(unity2018以上package mananger中包含vs code unity插件)  
-4 需要用uinty打开新下载的ES项目，使项目能正确加载unity引擎代码库，如果没有正确生成各.csproj项目文件，可从unity中启动visaul studio来正确生成再将编辑环境切换为 vs code. 可参考 https://www.taikr.com/article/3928  
+4 需要用unity打开新下载的ES项目，使项目能正确加载unity引擎代码库，如果没有正确生成各.csproj项目文件，可从unity中启动visaul studio来正确生成再将编辑环境切换为 vs code. 可参考 https://www.taikr.com/article/3928  
 5 NLog.config文件解决ES4,5版本log输出问题(\ET-Branch_V5.0\Server\App)  
 6 设置launch.json文件，在vs code中对项目进行调试  
 7 用global.json指定项目net sdk版本  

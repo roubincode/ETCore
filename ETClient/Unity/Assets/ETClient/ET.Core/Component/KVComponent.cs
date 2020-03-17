@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#if SERVER
+using System.Collections.Generic;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace ETModel
@@ -27,7 +28,7 @@ namespace ETModel
 			{
 				return default(T);
 			}
-			return (T) k;
+			return (T)k;
 		}
 
 		public override void Dispose()
@@ -41,3 +42,4 @@ namespace ETModel
 		}
 	}
 }
+#endif

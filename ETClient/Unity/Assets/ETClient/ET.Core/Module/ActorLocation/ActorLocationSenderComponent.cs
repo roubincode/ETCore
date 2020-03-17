@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if SERVER
+using System;
 using System.Collections.Generic;
 
 namespace ETModel
@@ -51,3 +52,4 @@ namespace ETModel
 		}
 	}
 }
+#endif

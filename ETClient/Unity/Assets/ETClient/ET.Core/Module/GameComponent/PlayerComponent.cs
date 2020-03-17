@@ -30,11 +30,13 @@ namespace ETModel
 			this.idPlayers.Add(player.Id, player);
 		}
 
+#if SERVER
 		public Player Get(long id)
 		{
 			this.idPlayers.TryGetValue(id, out Player player);
 			return player;
 		}
+#endif
 
 		public void Remove(long id)
 		{

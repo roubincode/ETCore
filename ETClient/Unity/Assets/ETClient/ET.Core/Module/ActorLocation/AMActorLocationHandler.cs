@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if SERVER
+using System;
 using System.Threading.Tasks;
 
 namespace ETModel
@@ -37,3 +38,4 @@ namespace ETModel
 		}
 	}
 }
+#endif

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿
+#if SERVER
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -35,3 +37,4 @@ namespace ETModel
 		}
 	}
 }
+#endif

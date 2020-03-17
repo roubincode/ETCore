@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿#if SERVER
+using System.Net;
 using System.Threading.Tasks;
 
 namespace ETModel
@@ -8,3 +9,4 @@ namespace ETModel
 		public IPEndPoint LocationAddress;
 	}
 }
+#endif

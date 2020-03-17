@@ -1,4 +1,5 @@
-﻿namespace ETModel
+﻿#if SERVER
+namespace ETModel
 {
 	public class Location: Entity
 	{
@@ -10,3 +11,4 @@
 		}
 	}
 }
+#endif

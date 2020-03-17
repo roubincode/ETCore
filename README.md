@@ -3,7 +3,7 @@
 ETServer&Client base on ET.Core by taikr.com   
 ETCore是由泰课在线维护的 ETServer游戏服务器开发框架的分支版本。     
 ETCore将前后端项目代码进行了分离，Server与Client各为独立可运行版本。    
-去掉了热更新模块。  
+去掉了热更新模块。    
 
 ## ETCore运行使用方法
 1 安装.net sdk  
@@ -14,7 +14,8 @@ ETCore将前后端项目代码进行了分离，Server与Client各为独立可�
 6 设置launch.json文件，在vs code中对项目进行调试  
 7 用global.json指定项目net sdk版本  
 8 命令行编译Server/Hotfix/Server.Hotfix.csproj(visaul studio单独编译也可以)  
-9 调试运行服务端，运行客户端 
+9 调试运行服务端，运行客户端   
+特别说明：客户端ETCore4.0要求unity2017.4以上,ETCore5.0要求unity2018.3以上
 
 ### 框架作者：熊猫
 ### 框架地址：https://github.com/egametang/ET

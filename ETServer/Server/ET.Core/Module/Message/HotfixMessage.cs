@@ -6,7 +6,7 @@
 using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using scg = global::System.Collections.Generic;
-namespace ETHotfix {
+namespace ETModel {
 
   #region Messages
   public partial class C2R_Login : pb::IMessage {
@@ -751,18 +751,18 @@ namespace ETHotfix {
       }
     }
 
-    private global::ETHotfix.PlayerInfo playerInfo_;
-    public global::ETHotfix.PlayerInfo PlayerInfo {
+    private global::ETModel.PlayerInfo playerInfo_;
+    public global::ETModel.PlayerInfo PlayerInfo {
       get { return playerInfo_; }
       set {
         playerInfo_ = value;
       }
     }
 
-    private static readonly pb::FieldCodec<global::ETHotfix.PlayerInfo> _repeated_playerInfos_codec
-        = pb::FieldCodec.ForMessage(18, global::ETHotfix.PlayerInfo.Parser);
-    private pbc::RepeatedField<global::ETHotfix.PlayerInfo> playerInfos_ = new pbc::RepeatedField<global::ETHotfix.PlayerInfo>();
-    public pbc::RepeatedField<global::ETHotfix.PlayerInfo> PlayerInfos {
+    private static readonly pb::FieldCodec<global::ETModel.PlayerInfo> _repeated_playerInfos_codec
+        = pb::FieldCodec.ForMessage(18, global::ETModel.PlayerInfo.Parser);
+    private pbc::RepeatedField<global::ETModel.PlayerInfo> playerInfos_ = new pbc::RepeatedField<global::ETModel.PlayerInfo>();
+    public pbc::RepeatedField<global::ETModel.PlayerInfo> PlayerInfos {
       get { return playerInfos_; }
       set { playerInfos_ = value; }
     }
@@ -853,7 +853,7 @@ namespace ETHotfix {
             break;
           case 10: {
             if (playerInfo_ == null) {
-              playerInfo_ = new global::ETHotfix.PlayerInfo();
+              playerInfo_ = new global::ETModel.PlayerInfo();
             }
             input.ReadMessage(playerInfo_);
             break;

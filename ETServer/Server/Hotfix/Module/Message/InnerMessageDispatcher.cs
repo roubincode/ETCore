@@ -4,7 +4,7 @@ namespace ETHotfix
 {
 	public class InnerMessageDispatcher: IMessageDispatcher
 	{
-		public void Dispatch(Session session, ushort opcode, object message)
+		public bool Dispatch(Session session, ushort opcode, object message)
 		{
 			// 收到actor消息,放入actor队列
 			switch (message)
@@ -21,7 +21,7 @@ namespace ETHotfix
 							RpcId = iActorRequest.RpcId
 						};
 						session.Reply(response);
-						return;
+						return true;
 					}
 	
 					MailBoxComponent mailBoxComponent = entity.GetComponent<MailBoxComponent>();
@@ -34,11 +34,11 @@ namespace ETHotfix
 						};
 						session.Reply(response);
 						Log.Error($"actor not add MailBoxComponent: {entity.GetType().Name} {message}");
-						return;
+						return true;
 					}
 				
 					mailBoxComponent.Add(new ActorMessageInfo() { Session = session, Message = iActorRequest });
-					return;
+					return true;
 				}
 				case IActorMessage iactorMessage:
 				{
@@ -46,24 +46,29 @@ namespace ETHotfix
 					if (entity == null)
 					{
 						Log.Error($"not found actor: {message}");
-						return;
+						return true;
 					}
 	
 					MailBoxComponent mailBoxComponent = entity.GetComponent<MailBoxComponent>();
 					if (mailBoxComponent == null)
 					{
 						Log.Error($"actor not add MailBoxComponent: {entity.GetType().Name} {message}");
-						return;
+						return true;
 					}
 				
 					mailBoxComponent.Add(new ActorMessageInfo() { Session = session, Message = iactorMessage });
-					return;
+					return true;
 				}
-				default:
+				case IResponse iResponse:
+					return false;
+				case IRequest iRequest:
+				case IMessage iMessge:
 				{
 					Game.Scene.GetComponent<MessageDispatcherComponent>().Handle(session, new MessageInfo(opcode, message));
-					break;
+					return true;
 				}
+				default:
+					return false;
 			}
 		}
 	}

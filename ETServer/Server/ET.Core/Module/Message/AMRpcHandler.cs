@@ -4,6 +4,14 @@ namespace ETModel
 {
 	public abstract class AMRpcHandler<Request, Response>: IMHandler where Request : class, IRequest where Response : class, IResponse 
 	{
+		protected static void ReplyError(Response response, Exception e, Action reply)
+		{
+			Log.Error(e);
+			response.Error = ErrorCode.ERR_RpcFail;
+			response.Message = e.ToString();
+			reply();
+		}
+		
 		protected abstract ETTask Run(Session session, Request request, Response response, Action reply);
 
 		public async ETVoid Handle(Session session, object message)

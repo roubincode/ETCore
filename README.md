@@ -5,21 +5,25 @@ ETCore是由泰课在线维护的 ETServer游戏服务器开发框架的分支�
 ETCore将前后端项目代码进行了分离，Server与Client各为独立可运行版本。    
 去掉了热更新模块。    
 
-## ETCore运行使用方法
-1 安装.net sdk  
+## ETCore运行指南（win下就安装这两个，mac，linux下自行解决）
+1 安装.NetCore SDK (建议2.2.300+，3.0以下版本，不能跨大版本。3.0版本目前还没有支持到)  
 2 通过vs installer安装 .net framework (共享组件需要安装在C盘)  
-3 安装vs code 和vs code c#扩展(unity2018以上package mananger中包含vs code unity插件)  
-4 需要用unity打开新下载的ES项目，使项目能正确加载unity引擎代码库，如果没有正确生成各.csproj项目文件，可从unity中启动visaul studio来正确生成再将编辑环境切换为 vs code. 可参考 https://www.taikr.com/article/3928  
-5 NLog.config文件解决ES4,5版本log输出问题(\ET-Branch_V5.0\Server\App)  
-6 设置launch.json文件，在vs code中对项目进行调试  
-7 用global.json指定项目net sdk版本  
-8 命令行编译Server/Hotfix/Server.Hotfix.csproj(visaul studio单独编译也可以)  
-9 调试运行服务端，运行客户端   
-特别说明：客户端ETCore4.0要求unity2017.4以上,ETCore5.0要求unity2018.3以上
+3 设置launch.json文件，在vs code中对项目进行调试  
+4 如果安装了多个版本的.netcore用global.json指定项目net sdk版本  
+### 前端运行  
+1 客户端ETCore4.0要求unity2017.4以上  
+2 客户端ETCore5.0要求unity2018.3以上
+3 需要用unity打开新下载的Client项目，使项目能正确加载unity引擎代码库，如果没有正确生成各.csproj项目文件，可从unity中启动visaul studio来正确生成再将编辑环境切换为 vs code. 可参考 https://www.taikr.com/article/3928   
+### 后端运行  
+1 用Visaul Studio 打开Server解决方案  
+2 编译Server/Hotfix/Server.Hotfix.csproj　(用命令行或用visaul studio单独编译都可以)  
+3 包还原完成后，调试运行服务端  
 
-### 框架作者：熊猫
+### ETCore网络斗地主案例教学（基于ET5.0网络通信，附ET核心框架构建解析）
+https://www.taikr.com/course/1053
+
+### 原ET框架作者：熊猫
 ### 框架地址：https://github.com/egametang/ET
-__讨论QQ群 : 474643097__
 
 # ETCore4.0发布!  
 1.ETCore4.0即是基于ETServer4.0版本。   

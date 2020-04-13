@@ -4,9 +4,10 @@ namespace ETHotfix
 {
 	public class OuterMessageDispatcher: IMessageDispatcher
 	{
-		public void Dispatch(Session session, ushort opcode, object message)
+		public bool Dispatch(Session session, ushort opcode, object message)
 		{
 			DispatchAsync(session, opcode, message).Coroutine();
+			return true;
 		}
 		
 		public async ETVoid DispatchAsync(Session session, ushort opcode, object message)
@@ -27,7 +28,6 @@ namespace ETHotfix
 						Op = opcode,
 						AMessage = ByteString.CopyFrom(session.Network.MessagePacker.SerializeTo(iFrameMessage))
 					};
-					//actorLocationSender.Send(oneFrameMessage);
 					Game.Scene.GetComponent<ServerFrameComponent>().Add(oneFrameMessage);
 					return;
 				}
@@ -56,13 +56,24 @@ namespace ETHotfix
 					actorLocationSender.Send(actorLocationMessage);
 					break;
 				}
-				case IActorRequest actorRequest:  // 分发IActorRequest消息，目前没有用到，需要的自己添加
+				case IActorRequest iActorRequest: 
 				{
-					break;
+					long actorId = session.GetComponent<SessionPlayerComponent>().Player.ActorID;
+					ActorMessageSender actorMessageSender = Game.Scene.GetComponent<ActorMessageSenderComponent>().Get(actorId);
+
+					int rpcId = iActorRequest.RpcId; // 这里要保存客户端的rpcId
+					IResponse response = await actorMessageSender.Call(iActorRequest);
+					response.RpcId = rpcId;
+
+					session.Reply(response);
+					return;
 				}
-				case IActorMessage actorMessage:  // 分发IActorMessage消息，目前没有用到，需要的自己添加
+				case IActorMessage iActorMessage: 
 				{
-					break;
+					long actorId = session.GetComponent<SessionPlayerComponent>().Player.ActorID;
+					ActorMessageSender actorMessageSender = Game.Scene.GetComponent<ActorMessageSenderComponent>().Get(actorId);
+					actorMessageSender.Send(iActorMessage);
+					return;
 				}
 				default:
 				{

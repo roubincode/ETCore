@@ -1,5 +1,5 @@
 using ETModel;
-namespace ETHotfix
+namespace ETModel
 {
 	[Message(HotfixOpcode.C2R_Login)]
 	public partial class C2R_Login : IRequest {}
@@ -32,7 +32,7 @@ namespace ETHotfix
 	public partial class G2C_PlayerInfo : IResponse {}
 
 }
-namespace ETHotfix
+namespace ETModel
 {
 	public static partial class HotfixOpcode
 	{

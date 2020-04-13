@@ -130,14 +130,6 @@ namespace ETModel
 			memoryStream.Seek(Packet.MessageIndex, SeekOrigin.Begin);
 			ushort opcode = BitConverter.ToUInt16(memoryStream.GetBuffer(), Packet.OpcodeIndex);
 			
-// #if !SERVER
-// 			if (OpcodeHelper.IsClientHotfixMessage(opcode))
-// 			{
-// 				this.GetComponent<SessionCallbackComponent>().MessageCallback.Invoke(this, opcode, memoryStream);
-// 				return;
-// 			}
-// #endif
-			
 			object message;
 			try
 			{
@@ -159,19 +151,31 @@ namespace ETModel
 				return;
 			}
 
-			if (!(message is IResponse response))
+			RunMessage(opcode, message);
+		}
+
+		private void RunMessage(ushort opcode, object message)
+		{        
+#if SERVER
+			if (Network.MessageDispatcher.Dispatch(this, opcode, message))
 			{
-				this.Network.MessageDispatcher.Dispatch(this, opcode, message);
 				return;
+			}	
+#else		
+			if (!(message is IResponse)
+			{
+				Game.Scene.GetComponent<MessageDispatcherComponent>().Handle(this, new MessageInfo(opcode, message));
 			}
-			
-			Action<IResponse> action;
-			if (!this.requestCallback.TryGetValue(response.RpcId, out action))
+#endif
+
+			var response = (IResponse) message;
+
+			if (!this.requestCallback.TryGetValue(response.RpcId, out var action))
 			{
 				throw new Exception($"not found rpc, response message: {StringHelper.MessageToStr(response)}");
 			}
 			this.requestCallback.Remove(response.RpcId);
-
+            
 			action(response);
 		}
 		
@@ -287,15 +291,7 @@ namespace ETModel
 			
 			if (OpcodeHelper.IsNeedDebugLogMessage(opcode) )
 			{
-#if !SERVER
-				if (OpcodeHelper.IsClientHotfixMessage(opcode))
-				{
-				}
-				else
-#endif
-				{
-					Log.Msg(message);
-				}
+				//Log.Msg(message);
 			}
 
 			MemoryStream stream = this.Stream;
@@ -307,16 +303,6 @@ namespace ETModel
 			
 			opcodeBytes.WriteTo(0, opcode);
 			Array.Copy(opcodeBytes, 0, stream.GetBuffer(), 0, opcodeBytes.Length);
-
-#if SERVER
-			// 如果是allserver，内部消息不走网络，直接转给session,方便调试时看到整体堆栈
-			if (this.Network.AppType == AppType.AllServer)
-			{
-				Session session = this.Network.Entity.GetComponent<NetInnerComponent>().Get(this.RemoteAddress);
-				session.Run(stream);
-				return;
-			}
-#endif
 
 			this.Send(stream);
 		}

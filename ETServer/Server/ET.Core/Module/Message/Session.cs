@@ -162,7 +162,7 @@ namespace ETModel
 				return;
 			}	
 #else		
-			if (!(message is IResponse)
+			if (!(message is IResponse))
 			{
 				Game.Scene.GetComponent<MessageDispatcherComponent>().Handle(this, new MessageInfo(opcode, message));
 			}

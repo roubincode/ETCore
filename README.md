@@ -6,7 +6,7 @@ ETCore将前后端项目代码进行了分离，Server与Client各为独立可�
 去掉了热更新模块。  
 
 ## ETCore运行指南（win下就安装这两个，mac，linux下自行解决）
-1 安装.NetCore SDK (ETCore4.0，5.0使用netcore2.2.300+,ETCore6.0使用netcore3.0+) 
+1 安装.NetCore SDK (ETCore4.0，5.0使用netcore2.2.300+,ETCore6.0使用netcore3.0+)   
 2 通过vs installer安装 .net framework (共享组件需要安装在C盘)  
 3 设置launch.json文件，在vs code中对项目进行调试  
 4 如果安装了多个版本的.netcore用global.json指定项目net sdk版本  

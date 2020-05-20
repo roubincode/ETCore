@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <LangVersion>7.3</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
@@ -12,7 +12,11 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <OutputPath>..\..\..\Bin\</OutputPath>
   </PropertyGroup>
- 
+  <ItemGroup>
+    <None Include="x86_64\kcp.dll" Link="kcp.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <ItemGroup>
     <None Update="libkcp.dylib">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -22,7 +26,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\Server\ET.Core\Module\Message\Network\KCP\Kcp.cs">
+    <Compile Include="..\..\ETCore\Module\Message\Network\KCP\Kcp.cs">
       <Link>Kcp.cs</Link>
     </Compile>
   </ItemGroup>

@@ -1,14 +1,14 @@
 ﻿using System;
-using ETModel;
 
-namespace ETHotfix
+
+namespace ET
 {
-	[MessageHandler(AppType.Location)]
-	public class ObjectGetRequestHandler : AMRpcHandler<ObjectGetRequest, ObjectGetResponse>
+	[ActorMessageHandler]
+	public class ObjectGetRequestHandler : AMActorRpcHandler<Scene, ObjectGetRequest, ObjectGetResponse>
 	{
-		protected override async ETTask Run(Session session, ObjectGetRequest request, ObjectGetResponse response, Action reply)
+		protected override async ETTask Run(Scene scene, ObjectGetRequest request, ObjectGetResponse response, Action reply)
 		{
-			long instanceId = await Game.Scene.GetComponent<LocationComponent>().GetAsync(request.Key);
+			long instanceId = await scene.GetComponent<LocationComponent>().Get(request.Key);
 			if (instanceId == 0)
 			{
 				response.Error = ErrorCode.ERR_ActorLocationNotFound;

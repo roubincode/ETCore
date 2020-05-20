@@ -1,1 +1,0 @@
-dotnet Proto2CS.dll

@@ -1,14 +1,14 @@
 ﻿using System;
-using ETModel;
 
-namespace ETHotfix
+
+namespace ET
 {
-	[MessageHandler(AppType.Location)]
-	public class ObjectRemoveRequestHandler : AMRpcHandler<ObjectRemoveRequest, ObjectRemoveResponse>
+	[ActorMessageHandler]
+	public class ObjectRemoveRequestHandler : AMActorRpcHandler<Scene, ObjectRemoveRequest, ObjectRemoveResponse>
 	{
-		protected override async ETTask Run(Session session, ObjectRemoveRequest request, ObjectRemoveResponse response, Action reply)
+		protected override async ETTask Run(Scene scene, ObjectRemoveRequest request, ObjectRemoveResponse response, Action reply)
 		{
-			Game.Scene.GetComponent<LocationComponent>().Remove(request.Key);
+			await scene.GetComponent<LocationComponent>().Remove(request.Key);
 			reply();
 			await ETTask.CompletedTask;
 		}

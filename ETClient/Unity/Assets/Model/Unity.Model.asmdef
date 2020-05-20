@@ -1,5 +1,5 @@
 {
-    "name": "Unity.ModelView",
+    "name": "Unity.Model",
     "references": [
         "Unity.ETCore",
         "Unity.ThirdParty"

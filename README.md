@@ -25,12 +25,18 @@ https://www.taikr.com/course/1053
 ### 原ET框架作者：熊猫
 ### 框架地址：https://github.com/egametang/ET
 
+# ETCore6.0发布！
+1.netcore升级到3.0   
+2.优化了actor分发机制，内网消息全部使用Actor消息。   
+3.统一为ET命名空间。   
+4.协程锁功能，解决异步队列。   
+5.现在只包含状态同步demo，需要的放在，根据5.0中帧同步demo的理解自己实现并不难   
+
 # ETCore5.0发布!  
 1.ETCore5.0即是基于ETServer5.0版本。   
 2.在ETServer5.0中增加了同步方式组件，同时包含帧同步与状态同步demo。   
 3.加入了UI组件demo中的登录界面使用UI组件了。   
 4.增加了actor rpc 返回逻辑
-
 
 # ETCore4.0发布!  
 1.ETCore4.0即是基于ETServer4.0版本。   

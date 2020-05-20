@@ -1,8 +1,8 @@
-﻿using ETModel;
+﻿
 
-namespace ETHotfix
+namespace ET
 {
-    [MessageHandler(AppType.Benchmark)]
+    [MessageHandler]
     public class G2C_TestHandler: AMHandler<G2C_Test>
     {
         public static int count = 0;

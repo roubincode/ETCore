@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <ApplicationIcon />
     <StartupObject />
     <LangVersion>7.3</LangVersion>
@@ -15,7 +15,7 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <OutputPath>..\..\..\Bin\</OutputPath>
   </PropertyGroup>
-  
+
   <ItemGroup>
     <ProjectReference Include="..\MongoDBDriver\MongoDB.Bson\MongoDB.Bson.csproj" />
   </ItemGroup>

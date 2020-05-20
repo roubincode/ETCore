@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
+using System.IO;
 using System.Threading;
-using ETModel;
+using CommandLine;
 using NLog;
 
-namespace App
+namespace ET
 {
 	internal static class Program
 	{
@@ -13,71 +15,26 @@ namespace App
 			SynchronizationContext.SetSynchronizationContext(OneThreadSynchronizationContext.Instance);
 			
 			try
-			{			
-				Game.EventSystem.Add(DLLType.Core, typeof(Game).Assembly);
-				Game.EventSystem.Add(DLLType.Hotfix, DllHelper.GetHotfixAssembly());
-
-				Options options = Game.Scene.AddComponent<OptionComponent, string[]>(args).Options;
-				StartConfig startConfig = Game.Scene.AddComponent<StartConfigComponent, string, int>(options.Config, options.AppId).StartConfig;
-
-				if (!options.AppType.Is(startConfig.AppType))
-				{
-					Log.Error("命令行参数apptype与配置不一致");
-					return;
-				}
-
-				IdGenerater.AppId = options.AppId;
-
-				LogManager.Configuration.Variables["appType"] = $"{startConfig.AppType}";
-				LogManager.Configuration.Variables["appId"] = $"{startConfig.AppId}";
-				LogManager.Configuration.Variables["appTypeFormat"] = $"{startConfig.AppType, -8}";
-				LogManager.Configuration.Variables["appIdFormat"] = $"{startConfig.AppId:0000}";
-
-				Log.Info($"server start........................ {startConfig.AppId} {startConfig.AppType}");
-
-				Game.Scene.AddComponent<TimerComponent>();
-				Game.Scene.AddComponent<OpcodeTypeComponent>();
-				Game.Scene.AddComponent<MessageDispatcherComponent>();
-
-				// 根据不同的AppType添加不同的组件
-				OuterConfig outerConfig = startConfig.GetComponent<OuterConfig>();
-				InnerConfig innerConfig = startConfig.GetComponent<InnerConfig>();
-				ClientConfig clientConfig = startConfig.GetComponent<ClientConfig>();
+			{		
+				Game.EventSystem.Add(typeof(Game).Assembly);
+				Game.EventSystem.Add(DllHelper.GetHotfixAssembly());
 				
-				// 发送普通actor消息
-				Game.Scene.AddComponent<ActorMessageSenderComponent>();
-				// 发送location actor消息
-				Game.Scene.AddComponent<ActorLocationSenderComponent>();
-					
-				// location server需要的组件
-				Game.Scene.AddComponent<LocationComponent>();
-				// 访问location server的组件
-				Game.Scene.AddComponent<LocationProxyComponent>();
+				MongoHelper.Init();
 				
-				// 这两个组件是处理actor消息使用的
-				Game.Scene.AddComponent<MailboxDispatcherComponent>();
-				Game.Scene.AddComponent<ActorMessageDispatcherComponent>();
+				// 命令行参数
+				Options options = null;
+				Parser.Default.ParseArguments<Options>(args)
+						.WithNotParsed(error => throw new Exception($"命令行格式错误!"))
+						.WithParsed(o => { options = o; });
 				
-				// 内网消息组件
-				Game.Scene.AddComponent<NetInnerComponent, string>(innerConfig.Address);
-				// 外网消息组件
-				Game.Scene.AddComponent<NetOuterComponent, string>(outerConfig.Address);
+				Game.Scene.AddComponent(options);
 				
-				// manager server组件，用来管理其它进程使用
-				Game.Scene.AddComponent<AppManagerComponent>();
-				Game.Scene.AddComponent<RealmGateAddressComponent>();
-				Game.Scene.AddComponent<GateSessionKeyComponent>();
-				
-				Game.Scene.AddComponent<PlayerComponent>();
-				Game.Scene.AddComponent<UnitComponent>();
+				IdGenerater.Process = (byte) options.Process;
+				LogManager.Configuration.Variables["appIdFormat"] = $"{Game.Scene.Id:0000}";
+				Log.Info($"server start........................ {Game.Scene.Id}");
 
-				// 配置管理
-				Game.Scene.AddComponent<ConfigComponent>();
-				Game.Scene.AddComponent<ConsoleComponent>();
-
-				// 网络同步方式组件
-				Game.Scene.AddComponent<NetSyncComponent,SyncType>(SyncType.State);
-				
+				// 添加服务组件
+				Game.EventSystem.Run(EventIdType.AfterScenesAdd);
 				
 				while (true)
 				{

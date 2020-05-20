@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>Hotfix</AssemblyName>
     <RootNamespace>ETHotfix</RootNamespace>
     <LangVersion>7.3</LangVersion>
@@ -22,12 +22,14 @@
     <None Remove="Other\**" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ET.Core\Server.ET.Core.csproj" />
+    <ProjectReference Include="..\ETCore\Server.ETCore.csproj" />
     <ProjectReference Include="..\ThirdParty\MongoDBDriver\MongoDB.Bson\MongoDB.Bson.csproj" />
     <ProjectReference Include="..\ThirdParty\MongoDBDriver\MongoDB.Driver.Core\MongoDB.Driver.Core.csproj" />
     <ProjectReference Include="..\ThirdParty\MongoDBDriver\MongoDB.Driver\MongoDB.Driver.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Module\Http\" />
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced, Version=1.9.1.9000, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\ThirdParty\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

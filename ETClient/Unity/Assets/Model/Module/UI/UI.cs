@@ -16,7 +16,7 @@ namespace ET
 	
 	public sealed class UI: Entity
 	{
-		public GameObject UIGObject;
+		public GameObject GameObject;
 		
 		public string Name { get; private set; }
 
@@ -28,9 +28,9 @@ namespace ET
 			gameObject.AddComponent<ComponentView>().Component = this;
 			gameObject.layer = LayerMask.NameToLayer(LayerNames.UI);
 			this.Name = name;
-			this.UIGObject = gameObject;
+			this.GameObject = gameObject;
 
-			gameObject.transform.SetParent(this.ViewGO.transform, true);
+			this.GameObject.transform.SetParent(this.ViewGO.transform, true);
 		}
 
 		public override void Dispose()
@@ -47,7 +47,7 @@ namespace ET
 				ui.Dispose();
 			}
 			
-			UnityEngine.Object.Destroy(UIGObject);
+			UnityEngine.Object.Destroy(this.GameObject);
 			children.Clear();
 		}
 

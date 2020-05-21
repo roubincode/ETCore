@@ -9,7 +9,7 @@ namespace ET
     {
         public override void Awake(UILobbyComponent self)
         {
-            ReferenceCollector rc = self.GetParent<UI>().UIGObject.GetComponent<ReferenceCollector>();
+            ReferenceCollector rc = self.GetParent<UI>().GameObject.GetComponent<ReferenceCollector>();
 			
             self.enterMap = rc.Get<GameObject>("EnterMap");
             self.enterMap.GetComponent<Button>().onClick.Add(self.EnterMap);

@@ -11,7 +11,7 @@ namespace ET
 	{
 		public override void Awake(UILoginComponent self)
 		{
-			ReferenceCollector rc = self.GetParent<UI>().UIGObject.GetComponent<ReferenceCollector>();
+			ReferenceCollector rc = self.GetParent<UI>().GameObject.GetComponent<ReferenceCollector>();
 			self.loginBtn = rc.Get<GameObject>("LoginBtn");
 			self.loginBtn.GetComponent<Button>().onClick.Add(self.OnLogin);
 			self.account = rc.Get<GameObject>("Account").GetComponent<InputField>();

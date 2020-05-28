@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server.App", "App\Server.Ap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server.Hotfix", "Hotfix\Server.Hotfix.csproj", "{E383A68D-1928-46F4-8896-4E99DF331476}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server.Model", "Model\Server.Model.csproj", "{85CB09B5-6392-4A13-BAF8-025218BFF496}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server.ETCore", "ETCore\Server.ETCore.csproj", "{85CB09B5-6392-4A13-BAF8-025218BFF496}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThirdParty", "ThirdParty", "{5D11E730-0CAA-4A47-BA1A-379004F0F6D9}"
 EndProject

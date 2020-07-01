@@ -19,12 +19,12 @@
 		}
 		
 	}
-#endif
+#endif	
 	public sealed class Player : Entity
 	{
 		
 		public long UnitId { get; set; }
-
+		public long ActorID { get; set; }
 		public override void Dispose()
 		{
 			if (this.IsDisposed)

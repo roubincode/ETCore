@@ -24,7 +24,7 @@
 	{
 		
 		public long UnitId { get; set; }
-
+		public long ActorID { get; set; }
 		public override void Dispose()
 		{
 			if (this.IsDisposed)

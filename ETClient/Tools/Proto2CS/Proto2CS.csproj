@@ -5,23 +5,21 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <OutputType>Exe</OutputType>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <StartupObject>ETTools.Program</StartupObject>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-      <OutputPath>../../Proto/</OutputPath>
+      <OutputPath>Bin/</OutputPath>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-      <OutputPath>../../Proto/</OutputPath>
+      <OutputPath>Bin/</OutputPath>
     </PropertyGroup>
 
     <ItemGroup>
       <Compile Remove=".vs\**" />
-      <Compile Include="..\..\Unity\Assets\Model\Base\ProcessHelper.cs">
-        <Link>ProcessHelper.cs</Link>
-      </Compile>
     </ItemGroup>
 
     <ItemGroup>

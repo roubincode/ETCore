@@ -1,4 +1,4 @@
-﻿/* Copyright 2010-present MongoDB Inc.
+﻿/* Copyright 2010-2016 MongoDB Inc.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -104,9 +104,9 @@ namespace MongoDB.Bson.Serialization.Conventions
 
         private void MapProperty(BsonClassMap classMap, PropertyInfo propertyInfo)
         {
-            if (!propertyInfo.CanRead || !propertyInfo.CanWrite)
+            if (!propertyInfo.CanRead || (!propertyInfo.CanWrite && classMap.ClassType.Namespace != null))
             {
-                // only read and write properties are mapped
+                // we can't write or it is anonymous...
                 return;
             }
 

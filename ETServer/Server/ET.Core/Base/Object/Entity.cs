@@ -6,7 +6,7 @@ using MongoDB.Bson.Serialization.Attributes;
 namespace ETModel
 {
 	[BsonIgnoreExtraElements]
-	public class Entity : ComponentWithId
+	public partial class  Entity : ComponentWithId
 	{
 		[BsonElement("C")]
 		[BsonIgnoreIfNull]
@@ -228,7 +228,7 @@ namespace ETModel
 		{
 			return this.componentDict.Values.ToArray();
 		}
-		
+
 		public override void EndInit()
 		{
 			try

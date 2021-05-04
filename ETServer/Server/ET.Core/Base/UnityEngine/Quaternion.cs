@@ -214,6 +214,15 @@ namespace UnityEngine
             quaternion.w = (float) ((double) num9 * (double) num6 * (double) num3 + (double) num8 * (double) num5 * (double) num2);
             return quaternion;
         }
+
+        public static Vector3 QuaternionToEuler(Quaternion quat)
+        {
+            Matrix3x3 m = QuaternionToMatrix(quat);
+            Vector3 euler = MatrixToEuler(m);
+
+            //弧度转角度
+            return Mathf.Rad2Deg(euler);
+        }
         
         public static Quaternion Euler(Vector3 eulerAngle)
         {
@@ -275,15 +284,6 @@ namespace UnityEngine
             m.Data[8] = 1.0f - (xx + yy);
 
             return m;
-        }
-        
-        public static Vector3 QuaternionToEuler(Quaternion quat)
-        {
-            Matrix3x3 m = QuaternionToMatrix(quat);
-            Vector3 euler = MatrixToEuler(m);
-
-            //弧度转角度
-            return Mathf.Rad2Deg(euler);
         }
         
         private static Vector3 MakePositive(Vector3 euler)

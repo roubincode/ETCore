@@ -50,6 +50,7 @@ namespace ETModel
 			this.channel = aChannel;
 			this.requestCallback.Clear();
 			long id = this.Id;
+			
 			channel.ErrorCallback += (c, e) =>
 			{
 				this.Network.Remove(id); 

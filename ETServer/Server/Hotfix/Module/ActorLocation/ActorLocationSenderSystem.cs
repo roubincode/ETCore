@@ -143,7 +143,7 @@ namespace ETHotfix
 				// 这里抛了异常就会导致队列中的消息无法继续发送，导致整个actorlocationsender堵塞
 				response = await actorMessageSender.CallWithoutException(task.ActorRequest);
 			}
-			catch (Exception e)
+			catch
 			{
 				self.GetParent<ActorLocationSenderComponent>().Remove(self.Id);
 				return;

@@ -1,0 +1,3 @@
+{ "_id" : 10021, "type" : "Monster", "Class" : "Bandit", "Name" : "野蛮力士","baseHealth":100,"perHealth":200, "mapId" : 7001,"taskId" : 0, "battleState" : 1, "pickingsId" : 0, "x" : 36, "y" : 2, "z" : 64, "Rotation" : 135}
+{ "_id" : 10022, "type" : "Monster", "Class" : "Bandit", "Name" : "野蛮力士","baseHealth":100,"perHealth":200, "mapId" : 7001,"taskId" : 0, "battleState" : 1, "pickingsId" : 0, "x" : 33, "y" : 2, "z" : 64, "Rotation" : 147}
+{ "_id" : 10023, "type" : "Monster", "Class" : "Bandit", "Name" : "野蛮力士","baseHealth":100,"perHealth":200, "mapId" : 7001,"taskId" : 0, "battleState" : 1, "pickingsId" : 0, "x" : 31, "y" : 2, "z" : 60, "Rotation" : 63}

@@ -10,6 +10,7 @@ namespace ETHotfix
 		{
 			Game.Scene.GetComponent<LocationComponent>().Add(request.Key, request.InstanceId);
 			reply();
+			await ETTask.CompletedTask;
 		}
 	}
 }

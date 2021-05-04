@@ -31,5 +31,28 @@ namespace ETModel
 			int value = random.Next(lower, upper);
 			return value;
 		}
+		public static int Random(int lower, int upper)
+		{
+			int value = random.Next(lower, upper);
+			return value;
+		}
+
+		public static int Random(int upper)
+		{
+			int value = random.Next(upper);
+			return value;
+		}
+
+		public static float Randomf()
+		{
+			int r = random.Next(0,100);
+			double c = Math.Round((Convert.ToDouble(r)/Convert.ToDouble(100)),2);
+			return Convert.ToSingle(c);
+		}
+
+		public static float Percentage(int a){
+			double c = Math.Round((Convert.ToDouble(a)/Convert.ToDouble(100)),2);
+			return Convert.ToSingle(c);
+		}
 	}
 }

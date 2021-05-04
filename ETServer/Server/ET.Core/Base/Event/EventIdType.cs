@@ -1,6 +1,6 @@
 ﻿namespace ETModel
 {
-	public static class EventIdType
+	public static partial class EventIdType
 	{
 		public const string RecvHotfixMessage = "RecvHotfixMessage";
 		public const string BehaviorTreeRunTreeEvent = "BehaviorTreeRunTreeEvent";

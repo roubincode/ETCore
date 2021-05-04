@@ -12,11 +12,7 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <OutputPath>..\..\..\Bin\</OutputPath>
   </PropertyGroup>
-  <ItemGroup>
-    <None Include="x86_64\kcp.dll" Link="kcp.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+ 
   <ItemGroup>
     <None Update="libkcp.dylib">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -26,7 +22,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\ETCore\Module\Message\Network\KCP\Kcp.cs">
+    <Compile Include="..\..\..\Server\ET.Core\Module\Message\Network\KCP\Kcp.cs">
       <Link>Kcp.cs</Link>
     </Compile>
   </ItemGroup>

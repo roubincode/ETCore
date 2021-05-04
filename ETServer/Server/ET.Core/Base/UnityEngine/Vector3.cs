@@ -40,6 +40,44 @@ namespace UnityEngine
             this.z = z;
         }
 
+        public static Vector3 MoveTowards(Vector3 current, Vector3 target, float maxDistanceDelta)
+        {
+            // avoid vector ops because current scripting backends are terrible at inlining
+            float toVector_x = target.x - current.x;
+            float toVector_y = target.y - current.y;
+            float toVector_z = target.z - current.z;
+
+            float sqdist = toVector_x * toVector_x + toVector_y * toVector_y + toVector_z * toVector_z;
+
+            if (sqdist == 0 || (maxDistanceDelta >= 0 && sqdist <= maxDistanceDelta * maxDistanceDelta))
+                return target;
+            var dist = (float)Math.Sqrt(sqdist);
+
+            return new Vector3(current.x + toVector_x / dist * maxDistanceDelta,
+                current.y + toVector_y / dist * maxDistanceDelta,
+                current.z + toVector_z / dist * maxDistanceDelta);
+        }
+
+        // Returns a copy of /vector/ with its magnitude clamped to /maxLength/.
+        public static Vector3 ClampMagnitude(Vector3 vector, float maxLength)
+        {
+            float sqrmag = vector.sqrMagnitude;
+            if (sqrmag > maxLength * maxLength)
+            {
+                float mag = (float)Math.Sqrt(sqrmag);
+                //these intermediate variables force the intermediate result to be
+                //of float precision. without this, the intermediate result can be of higher
+                //precision, which changes behavior.
+                float normalized_x = vector.x / mag;
+                float normalized_y = vector.y / mag;
+                float normalized_z = vector.z / mag;
+                return new Vector3(normalized_x * maxLength,
+                    normalized_y * maxLength,
+                    normalized_z * maxLength);
+            }
+            return vector;
+        }
+
         public override string ToString()
         {
             CultureInfo currentCulture = CultureInfo.CurrentCulture;

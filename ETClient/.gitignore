@@ -13,6 +13,7 @@ Bin/
 ######################
 Library/
 Packages/
+Temp/
 *.meta
 
 # Packages #  

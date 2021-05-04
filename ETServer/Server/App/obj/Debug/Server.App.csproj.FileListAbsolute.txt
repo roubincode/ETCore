@@ -1,0 +1,16 @@
+D:\data\github\ETCore\ETServer\Bin\libkcp.dylib
+D:\data\github\ETCore\ETServer\Bin\libkcp.so
+D:\data\github\ETCore\ETServer\Bin\NLog.config
+D:\data\github\ETCore\ETServer\Bin\App.dll.config
+D:\data\github\ETCore\ETServer\Bin\App.deps.json
+D:\data\github\ETCore\ETServer\Bin\App.runtimeconfig.json
+D:\data\github\ETCore\ETServer\Bin\App.runtimeconfig.dev.json
+D:\data\github\ETCore\ETServer\Bin\App.dll
+D:\data\github\ETCore\ETServer\Bin\App.pdb
+D:\data\github\ETCore\ETServer\Server\App\obj\Debug\Server.App.csprojAssemblyReference.cache
+D:\data\github\ETCore\ETServer\Server\App\obj\Debug\Server.App.csproj.CoreCompileInputs.cache
+D:\data\github\ETCore\ETServer\Server\App\obj\Debug\Server.App.AssemblyInfoInputs.cache
+D:\data\github\ETCore\ETServer\Server\App\obj\Debug\Server.App.AssemblyInfo.cs
+D:\data\github\ETCore\ETServer\Server\App\obj\Debug\Server.App.csproj.CopyComplete
+D:\data\github\ETCore\ETServer\Server\App\obj\Debug\App.dll
+D:\data\github\ETCore\ETServer\Server\App\obj\Debug\App.pdb

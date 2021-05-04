@@ -1,0 +1,11 @@
+D:\data\github\ETCore\ETServer\Bin\libkcp.dylib
+D:\data\github\ETCore\ETServer\Bin\libkcp.so
+D:\data\github\ETCore\ETServer\Server\ThirdParty\KcpLib\obj\Debug\KcpLib.csprojAssemblyReference.cache
+D:\data\github\ETCore\ETServer\Server\ThirdParty\KcpLib\obj\Debug\KcpLib.csproj.CoreCompileInputs.cache
+D:\data\github\ETCore\ETServer\Server\ThirdParty\KcpLib\obj\Debug\KcpLib.AssemblyInfoInputs.cache
+D:\data\github\ETCore\ETServer\Server\ThirdParty\KcpLib\obj\Debug\KcpLib.AssemblyInfo.cs
+D:\data\github\ETCore\ETServer\Server\ThirdParty\KcpLib\obj\Debug\KcpLib.dll
+D:\data\github\ETCore\ETServer\Server\ThirdParty\KcpLib\obj\Debug\KcpLib.pdb
+D:\data\github\ETCore\ETServer\Bin\KcpLib.deps.json
+D:\data\github\ETCore\ETServer\Bin\KcpLib.dll
+D:\data\github\ETCore\ETServer\Bin\KcpLib.pdb

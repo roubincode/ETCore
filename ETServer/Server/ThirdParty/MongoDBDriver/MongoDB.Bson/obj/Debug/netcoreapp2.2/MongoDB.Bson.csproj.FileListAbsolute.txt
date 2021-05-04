@@ -1,0 +1,11 @@
+D:\data\github\ETCore\ETServer\Server\ThirdParty\MongoDBDriver\MongoDB.Bson\obj\Debug\netcoreapp2.2\MongoDB.Bson.csprojAssemblyReference.cache
+D:\data\github\ETCore\ETServer\Server\ThirdParty\MongoDBDriver\MongoDB.Bson\obj\Debug\netcoreapp2.2\MongoDB.Bson.csproj.CoreCompileInputs.cache
+D:\data\github\ETCore\ETServer\Server\ThirdParty\MongoDBDriver\MongoDB.Bson\obj\Debug\netcoreapp2.2\MongoDB.Bson.AssemblyInfoInputs.cache
+D:\data\github\ETCore\ETServer\Server\ThirdParty\MongoDBDriver\MongoDB.Bson\obj\Debug\netcoreapp2.2\MongoDB.Bson.AssemblyInfo.cs
+D:\data\github\ETCore\ETServer\Server\ThirdParty\MongoDBDriver\MongoDB.Bson\obj\Debug\netcoreapp2.2\MongoDB.Bson.dll
+D:\data\github\ETCore\ETServer\Server\ThirdParty\MongoDBDriver\MongoDB.Bson\obj\Debug\netcoreapp2.2\MongoDB.Bson.xml
+D:\data\github\ETCore\ETServer\Server\ThirdParty\MongoDBDriver\MongoDB.Bson\obj\Debug\netcoreapp2.2\MongoDB.Bson.pdb
+D:\data\github\ETCore\ETServer\Bin\netcoreapp2.2\MongoDB.Bson.deps.json
+D:\data\github\ETCore\ETServer\Bin\netcoreapp2.2\MongoDB.Bson.dll
+D:\data\github\ETCore\ETServer\Bin\netcoreapp2.2\MongoDB.Bson.pdb
+D:\data\github\ETCore\ETServer\Bin\netcoreapp2.2\MongoDB.Bson.xml

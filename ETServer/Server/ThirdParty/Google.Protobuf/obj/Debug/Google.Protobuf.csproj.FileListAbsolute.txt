@@ -1,0 +1,10 @@
+D:\data\github\ETCore\ETServer\Bin\Google.Protobuf.deps.json
+D:\data\github\ETCore\ETServer\Bin\Google.Protobuf.dll
+D:\data\github\ETCore\ETServer\Bin\Google.Protobuf.pdb
+D:\data\github\ETCore\ETServer\Server\ThirdParty\Google.Protobuf\obj\Debug\Google.Protobuf.csprojAssemblyReference.cache
+D:\data\github\ETCore\ETServer\Server\ThirdParty\Google.Protobuf\obj\Debug\Google.Protobuf.csproj.CoreCompileInputs.cache
+D:\data\github\ETCore\ETServer\Server\ThirdParty\Google.Protobuf\obj\Debug\Google.Protobuf.AssemblyInfoInputs.cache
+D:\data\github\ETCore\ETServer\Server\ThirdParty\Google.Protobuf\obj\Debug\Google.Protobuf.AssemblyInfo.cs
+D:\data\github\ETCore\ETServer\Server\ThirdParty\Google.Protobuf\obj\Debug\Google.Protobuf.csproj.CopyComplete
+D:\data\github\ETCore\ETServer\Server\ThirdParty\Google.Protobuf\obj\Debug\Google.Protobuf.dll
+D:\data\github\ETCore\ETServer\Server\ThirdParty\Google.Protobuf\obj\Debug\Google.Protobuf.pdb

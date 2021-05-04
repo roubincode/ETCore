@@ -1,0 +1,12 @@
+D:\data\github\ETCore\ETServer\Bin\libkcp.dylib
+D:\data\github\ETCore\ETServer\Bin\libkcp.so
+D:\data\github\ETCore\ETServer\Bin\Hotfix.deps.json
+D:\data\github\ETCore\ETServer\Bin\Hotfix.dll
+D:\data\github\ETCore\ETServer\Bin\Hotfix.pdb
+D:\data\github\ETCore\ETServer\Server\Hotfix\obj\Debug\Server.Hotfix.csproj.CoreCompileInputs.cache
+D:\data\github\ETCore\ETServer\Server\Hotfix\obj\Debug\Server.Hotfix.AssemblyInfoInputs.cache
+D:\data\github\ETCore\ETServer\Server\Hotfix\obj\Debug\Server.Hotfix.AssemblyInfo.cs
+D:\data\github\ETCore\ETServer\Server\Hotfix\obj\Debug\Server.Hotfix.csproj.CopyComplete
+D:\data\github\ETCore\ETServer\Server\Hotfix\obj\Debug\Hotfix.dll
+D:\data\github\ETCore\ETServer\Server\Hotfix\obj\Debug\Hotfix.pdb
+D:\data\github\ETCore\ETServer\Server\Hotfix\obj\Debug\Server.Hotfix.csprojAssemblyReference.cache

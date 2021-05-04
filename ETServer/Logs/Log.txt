@@ -1,0 +1,14 @@
+2021-05-04 09:45:27.4300   (Program.cs:18) System.IO.FileNotFoundException: Could not find file 'D:\data\github\ETCore\ETServer\Bin\Hotfix.dll'.
+File name: 'D:\data\github\ETCore\ETServer\Bin\Hotfix.dll'
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at System.IO.File.ReadAllBytes(String path)
+   at ETModel.DllHelper.GetHotfixAssembly() in D:\data\github\ETCore\ETServer\Server\ET.Core\Base\Helper\DllHelper.cs:line 10
+   at App.Program.Main(String[] args) in D:\data\github\ETCore\ETServer\Server\App\Program.cs:line 18
+2021-05-04 09:46:50.2792 AllServer 0001 (Program.cs:36) server start........................ 1 AllServer
+2021-05-04 09:47:34.9231 AllServer 0001 (Program.cs:36) server start........................ 1 AllServer
+2021-05-04 09:48:54.0030 AllServer 0001 (Program.cs:36) server start........................ 1 AllServer
+2021-05-04 10:53:24.3536 AllServer 0001 (Program.cs:37) server start........................ 1 AllServer
+2021-05-04 10:53:24.6412 AllServer 0001 (DBProxyComponentSystem.cs:31) 127.0.0.1:20002

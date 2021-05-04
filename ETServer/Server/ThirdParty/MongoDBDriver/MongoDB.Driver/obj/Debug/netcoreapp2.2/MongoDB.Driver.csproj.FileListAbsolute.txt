@@ -1,0 +1,12 @@
+D:\data\github\ETCore\ETServer\Bin\netcoreapp2.2\MongoDB.Driver.deps.json
+D:\data\github\ETCore\ETServer\Bin\netcoreapp2.2\MongoDB.Driver.dll
+D:\data\github\ETCore\ETServer\Bin\netcoreapp2.2\MongoDB.Driver.pdb
+D:\data\github\ETCore\ETServer\Bin\netcoreapp2.2\MongoDB.Driver.xml
+D:\data\github\ETCore\ETServer\Server\ThirdParty\MongoDBDriver\MongoDB.Driver\obj\Debug\netcoreapp2.2\MongoDB.Driver.csprojAssemblyReference.cache
+D:\data\github\ETCore\ETServer\Server\ThirdParty\MongoDBDriver\MongoDB.Driver\obj\Debug\netcoreapp2.2\MongoDB.Driver.csproj.CoreCompileInputs.cache
+D:\data\github\ETCore\ETServer\Server\ThirdParty\MongoDBDriver\MongoDB.Driver\obj\Debug\netcoreapp2.2\MongoDB.Driver.AssemblyInfoInputs.cache
+D:\data\github\ETCore\ETServer\Server\ThirdParty\MongoDBDriver\MongoDB.Driver\obj\Debug\netcoreapp2.2\MongoDB.Driver.AssemblyInfo.cs
+D:\data\github\ETCore\ETServer\Server\ThirdParty\MongoDBDriver\MongoDB.Driver\obj\Debug\netcoreapp2.2\MongoDB.Driver.csproj.CopyComplete
+D:\data\github\ETCore\ETServer\Server\ThirdParty\MongoDBDriver\MongoDB.Driver\obj\Debug\netcoreapp2.2\MongoDB.Driver.dll
+D:\data\github\ETCore\ETServer\Server\ThirdParty\MongoDBDriver\MongoDB.Driver\obj\Debug\netcoreapp2.2\MongoDB.Driver.xml
+D:\data\github\ETCore\ETServer\Server\ThirdParty\MongoDBDriver\MongoDB.Driver\obj\Debug\netcoreapp2.2\MongoDB.Driver.pdb

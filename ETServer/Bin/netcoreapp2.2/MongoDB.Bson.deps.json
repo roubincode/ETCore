@@ -1,0 +1,73 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.2",
+    "signature": "2b3afad55074a14e9f30c202f321114ccfad556e"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.2": {
+      "MongoDB.Bson/0.0.0-local": {
+        "dependencies": {
+          "Microsoft.CodeAnalysis.FxCopAnalyzers": "2.6.1"
+        },
+        "runtime": {
+          "MongoDB.Bson.dll": {}
+        }
+      },
+      "Microsoft.CodeAnalysis.FxCopAnalyzers/2.6.1": {
+        "dependencies": {
+          "Microsoft.CodeQuality.Analyzers": "2.6.1",
+          "Microsoft.NetCore.Analyzers": "2.6.1",
+          "Microsoft.NetFramework.Analyzers": "2.6.1",
+          "Text.Analyzers": "2.6.1"
+        }
+      },
+      "Microsoft.CodeQuality.Analyzers/2.6.1": {},
+      "Microsoft.NetCore.Analyzers/2.6.1": {},
+      "Microsoft.NetFramework.Analyzers/2.6.1": {},
+      "Text.Analyzers/2.6.1": {}
+    }
+  },
+  "libraries": {
+    "MongoDB.Bson/0.0.0-local": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.CodeAnalysis.FxCopAnalyzers/2.6.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-U3hSrb8S370HDjy6Au1YYXfCebfO1ccpi7q2jWnOKSpwKMDmCNzK/dcTu60RAjyztbXTFpu7YRrt2N0+dtJrQQ==",
+      "path": "microsoft.codeanalysis.fxcopanalyzers/2.6.1",
+      "hashPath": "microsoft.codeanalysis.fxcopanalyzers.2.6.1.nupkg.sha512"
+    },
+    "Microsoft.CodeQuality.Analyzers/2.6.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JQ66UUu0wdJQFVN5Rw2VI6ABhwLbn8glvV+u3BgsymVXeRzVLoizqPuuXak7PO9+T2DqKOoc7SDvYC4VeY5LOA==",
+      "path": "microsoft.codequality.analyzers/2.6.1",
+      "hashPath": "microsoft.codequality.analyzers.2.6.1.nupkg.sha512"
+    },
+    "Microsoft.NetCore.Analyzers/2.6.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hbdUfqS8p7A8EMAORxbfGwTI4R06TMOWS0JHb0vB7zsG8AtD7ozcp6beCZr0f/s5sM++uqoFuZBEu4pwQv2QsQ==",
+      "path": "microsoft.netcore.analyzers/2.6.1",
+      "hashPath": "microsoft.netcore.analyzers.2.6.1.nupkg.sha512"
+    },
+    "Microsoft.NetFramework.Analyzers/2.6.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iPfYKe1DC6/6LdTsVMLO3y/SMjT5wtdTbEugcK2MhpxpjAoR0Vycj2t4eJTLCkR9JfAgeAk8Ep7TvXf2P31KTA==",
+      "path": "microsoft.netframework.analyzers/2.6.1",
+      "hashPath": "microsoft.netframework.analyzers.2.6.1.nupkg.sha512"
+    },
+    "Text.Analyzers/2.6.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-t9LgDel9e8XaRCbP/dEQnCxvoAt5DXeUvvHbIxqH9yLjVFocMBpv3lz7Lynu84pMsFyiNoBMenLzmXAcEe/Teg==",
+      "path": "text.analyzers/2.6.1",
+      "hashPath": "text.analyzers.2.6.1.nupkg.sha512"
+    }
+  }
+}

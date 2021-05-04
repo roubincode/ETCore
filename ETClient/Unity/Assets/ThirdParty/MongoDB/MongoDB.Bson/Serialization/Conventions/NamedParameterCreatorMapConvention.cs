@@ -1,4 +1,4 @@
-﻿/* Copyright 2010-present MongoDB Inc.
+﻿/* Copyright 2010-2016 MongoDB Inc.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -45,7 +45,8 @@ namespace MongoDB.Bson.Serialization.Conventions
                             var argument = FindMatchingArgument(creatorMap.ClassMap.ClassType, parameter);
                             if (argument == null)
                             {
-                                return;
+                                var message = string.Format("Unable to find a matching member to provide the value for parameter '{0}'.", parameter.Name);
+                                throw new BsonException(message);
                             }
                             arguments.Add(argument);
                         }

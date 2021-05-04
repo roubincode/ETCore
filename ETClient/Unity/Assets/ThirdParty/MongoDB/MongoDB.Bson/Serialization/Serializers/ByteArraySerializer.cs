@@ -1,4 +1,4 @@
-/* Copyright 2010-present MongoDB Inc.
+/* Copyright 2010-2015 MongoDB Inc.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -124,7 +124,12 @@ namespace MongoDB.Bson.Serialization.Serializers
                     break;
 
                 case BsonType.String:
-                    bsonWriter.WriteString(BsonUtils.ToHexString(value));
+                    var sb = new StringBuilder(value.Length * 2);
+                    for (int i = 0; i < value.Length; i++)
+                    {
+                        sb.Append(string.Format("{0:x2}", value[i]));
+                    }
+                    bsonWriter.WriteString(sb.ToString());
                     break;
 
                 default:

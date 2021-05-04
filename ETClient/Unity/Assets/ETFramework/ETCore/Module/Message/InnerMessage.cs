@@ -2,33 +2,6 @@ using ETModel;
 using System.Collections.Generic;
 namespace ETModel
 {
-/// <summary>
-/// MMOServer内网消息
-/// </summary>
-//获取LoginKey
-	[Message(InnerOpcode.GetLoginKey_R2G)]
-	public partial class GetLoginKey_R2G: IRequest
-	{
-		public int RpcId { get; set; }
-
-		public long UserId { get; set; }
-
-	}
-
-//返回LoginKey
-	[Message(InnerOpcode.GetLoginKey_G2R)]
-	public partial class GetLoginKey_G2R: IResponse
-	{
-		public int RpcId { get; set; }
-
-		public int Error { get; set; }
-
-		public string Message { get; set; }
-
-		public long GateLoginKey { get; set; }
-
-	}
-
 //向realm用户发送上线消息
 	[Message(InnerOpcode.PlayerOnline_G2R)]
 	public partial class PlayerOnline_G2R: IMessage
@@ -51,55 +24,8 @@ namespace ETModel
 
 	}
 
-	[Message(InnerOpcode.KickOutPlayer_R2G)]
-	public partial class KickOutPlayer_R2G: IRequest
-	{
-		public int RpcId { get; set; }
-
-		public long UserId { get; set; }
-
-	}
-
-	[Message(InnerOpcode.KickOutPlayer_G2R)]
-	public partial class KickOutPlayer_G2R: IResponse
-	{
-		public int RpcId { get; set; }
-
-		public int Error { get; set; }
-
-		public string Message { get; set; }
-
-	}
-
-	[Message(InnerOpcode.CreateUnit_G2M)]
-	public partial class CreateUnit_G2M: IMessage
-	{
-		public int RpcId { get; set; }
-
-		public long UserId { get; set; }
-
-		public long CharaId { get; set; }
-
-		public long GActorId { get; set; }
-
-		public long CActorId { get; set; }
-
-	}
-
-//通知Gate更新User的ActorId
-	[Message(InnerOpcode.Actor_EnterMapSucess_M2G)]
-	public partial class Actor_EnterMapSucess_M2G: IActorMessage
-	{
-		public long ActorId { get; set; }
-
-		public long GamerId { get; set; }
-
-		public long UnitId { get; set; }
-
-	}
-
 /// <summary>
-/// ET
+/// 传送unit
 /// </summary>
 	[Message(InnerOpcode.M2M_TrasferUnitRequest)]
 	public partial class M2M_TrasferUnitRequest: IRequest

@@ -5,19 +5,26 @@ ETCore是由泰课在线维护的 ETServer游戏服务器开发框架的分支�
 ETCore将前后端项目代码进行了分离，Server与Client各为独立可运行版本。    
 去掉了热更新模块。  
 
-## ETCore运行指南（win下就安装这两个，mac，linux下自行解决）
-1 安装.NetCore SDK (ETCore4.0，5.0使用netcore2.2.300+,ETCore6.0使用netcore3.0+)   
-2 通过vs installer安装 .net framework (共享组件需要安装在C盘)  
-3 设置launch.json文件，在vs code中对项目进行调试  
-4 如果安装了多个版本的.netcore用global.json指定项目net sdk版本  
+## ETCore运行指南（指南是基于win，mac，linux下自行解决）
+1.下载 vs code system版本，找到扩展面板，搜索C#扩展安装好扩展。  
+2.安装.NetCore SDK，下载：.NetCore2.2  (建议2.2.300+，3.0以下版本，不能跨大版本。ETCore5.0 不支持netcore3)  
+3.设置netsdk的windows环境变量，在用户变量中设置  
+配置环境变量名： MSBuildSdksPath  
+环境变量值：C:\Program Files\dotnet\sdk\2.2.300\Sdks （根据你自己的安装目录）  
+4.安装 .NETFramework  
+比如打开项目报错缺少 .NETFFramework4.7.1，就找到 下载页面选择 4.7.1  下载页面上的 Developer Pack  
+5.指定项目使用的netcore运行时版本  
+通过 global.json 文件，定义运行时使用的 .NET Core SDK 版本  
+命令行到达项目的根目录：dotnet new globaljson --sdk-version 2.2.300，在你的项目中创建一个global.json 文件  
+6.用vs code打开项目，根据提示完成一次"Restore"包还原操作。  
+如果打开运行过项目，把你的解决方案中的所有项目中的obj目录全部删除，打开code重新Restore
+
 ### 前端运行  
 1 客户端ETCore4.0要求unity2017.4以上  
-2 客户端ETCore5.0，6.0要求unity2018.3以上
-3 需要用unity打开新下载的Client项目，使项目能正确加载unity引擎代码库，如果没有正确生成各.csproj项目文件，可从unity中启动visaul studio来正确生成再将编辑环境切换为 vs code. 可参考 https://www.taikr.com/article/3928   
+2 客户端ETCore5.0要求unity2018.3以上  
 ### 后端运行  
-1 用Visaul Studio 打开Server解决方案  
-2 编译Server/Hotfix/Server.Hotfix.csproj　(用命令行或用visaul studio单独编译都可以)  
-3 包还原完成后，调试运行服务端  
+1 用Visaul Studio 打开Server解决方案编译运行，或者命令行运行生成的App.dll  
+2 需要单独编译Server/Hotfix/Server.Hotfix.csproj　(用命令行或用visaul studio单独编译都可以)  
 
 ### ETCore网络斗地主案例教学（基于ET5.0网络通信，附ET核心框架构建解析）
 https://www.taikr.com/course/1053
@@ -25,12 +32,11 @@ https://www.taikr.com/course/1053
 ### 原ET框架作者：熊猫
 ### 框架地址：https://github.com/egametang/ET
 
-# ETCore6.0发布！
-1.netcore升级到3.0   
-2.优化了actor分发机制，内网消息全部使用Actor消息。   
-3.统一为ET命名空间。   
-4.协程锁功能，解决异步队列。   
-5.现在只包含状态同步demo，需要的帧同步的话，根据5.0中帧同步demo的理解自己实现并不难   
+# ETCore5.0最新更新！
+1.删除了所有不必要的服务端组件。  
+2.框架不再包含demo示例，前后端如何使用可通过教学文档了解，这样减少了并不了解框架全部核心组件模块结构的人，
+运行框架的障碍，也能不受影响的开发自己的项目功能。  
+3.最近原ET框架可能发布6.0的正式版，所以删除了ETCore6.0分支，到时再添加。
 
 # ETCore5.0发布!  
 1.ETCore5.0即是基于ETServer5.0版本。   

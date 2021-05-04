@@ -1,14 +1,14 @@
 ﻿using System;
+using ETModel;
 
-
-namespace ET
+namespace ETHotfix
 {
-	[ActorMessageHandler]
-	public class ObjectLockRequestHandler : AMActorRpcHandler<Scene, ObjectLockRequest, ObjectLockResponse>
+	[MessageHandler(AppType.Location)]
+	public class ObjectLockRequestHandler : AMRpcHandler<ObjectLockRequest, ObjectLockResponse>
 	{
-		protected override async ETTask Run(Scene scene, ObjectLockRequest request, ObjectLockResponse response, Action reply)
+		protected override async ETTask Run(Session session, ObjectLockRequest request, ObjectLockResponse response, Action reply)
 		{
-			scene.GetComponent<LocationComponent>().Lock(request.Key, request.InstanceId, request.Time).Coroutine();
+			Game.Scene.GetComponent<LocationComponent>().Lock(request.Key, request.InstanceId, request.Time).Coroutine();
 			reply();
 		}
 	}

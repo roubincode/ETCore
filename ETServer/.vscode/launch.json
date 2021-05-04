@@ -5,7 +5,7 @@
    "version": "0.2.0",
    "configurations": [
         {
-            "name": ".ETApp (console)",
+            "name": "ETCoreApp (console)",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",

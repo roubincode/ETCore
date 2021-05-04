@@ -1,8 +1,29 @@
-#if SERVER
 using ETModel;
 using System.Collections.Generic;
 namespace ETModel
 {
+//向realm用户发送上线消息
+	[Message(InnerOpcode.PlayerOnline_G2R)]
+	public partial class PlayerOnline_G2R: IMessage
+	{
+		public int RpcId { get; set; }
+
+		public long UserId { get; set; }
+
+		public int GateAppId { get; set; }
+
+	}
+
+//向realm用户发送下线消息
+	[Message(InnerOpcode.PlayerOffline_G2R)]
+	public partial class PlayerOffline_G2R: IMessage
+	{
+		public int RpcId { get; set; }
+
+		public long UserId { get; set; }
+
+	}
+
 /// <summary>
 /// 传送unit
 /// </summary>
@@ -95,6 +116,8 @@ namespace ETModel
 	{
 		public int RpcId { get; set; }
 
+		public bool NeedCache { get; set; }
+
 		public string CollectionName { get; set; }
 
 		public ComponentWithId Component { get; set; }
@@ -116,6 +139,8 @@ namespace ETModel
 	public partial class DBSaveBatchRequest: IRequest
 	{
 		public int RpcId { get; set; }
+
+		public bool NeedCache { get; set; }
 
 		public string CollectionName { get; set; }
 
@@ -141,6 +166,8 @@ namespace ETModel
 
 		public long Id { get; set; }
 
+		public bool NeedCache { get; set; }
+
 		public string CollectionName { get; set; }
 
 	}
@@ -162,6 +189,8 @@ namespace ETModel
 	public partial class DBQueryBatchRequest: IRequest
 	{
 		public int RpcId { get; set; }
+
+		public bool NeedCache { get; set; }
 
 		public string CollectionName { get; set; }
 
@@ -203,6 +232,30 @@ namespace ETModel
 		public string Message { get; set; }
 
 		public List<ComponentWithId> Components = new List<ComponentWithId>();
+
+	}
+
+	[Message(InnerOpcode.DBQuery2JsonRequest)]
+	public partial class DBQuery2JsonRequest: IRequest
+	{
+		public int RpcId { get; set; }
+
+		public string CollectionName { get; set; }
+
+		public string Json { get; set; }
+
+	}
+
+	[Message(InnerOpcode.DBQuery2JsonResponse)]
+	public partial class DBQuery2JsonResponse: IResponse
+	{
+		public int RpcId { get; set; }
+
+		public int Error { get; set; }
+
+		public string Message { get; set; }
+
+		public List<Component> Components = new List<Component>();
 
 	}
 
@@ -380,4 +433,3 @@ namespace ETModel
 	}
 
 }
-#endif

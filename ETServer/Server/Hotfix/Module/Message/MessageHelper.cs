@@ -10,13 +10,7 @@ namespace ETHotfix
 			ActorMessageSenderComponent actorLocationSenderComponent = Game.Scene.GetComponent<ActorMessageSenderComponent>();
 			foreach (Unit unit in units)
 			{
-				UnitGateComponent unitGateComponent = unit.GetComponent<UnitGateComponent>();
-				if (unitGateComponent.IsDisconnect)
-				{
-					continue;
-				}
-
-				ActorMessageSender actorMessageSender = actorLocationSenderComponent.Get(unitGateComponent.GateSessionActorId);
+				ActorMessageSender actorMessageSender = actorLocationSenderComponent.Get(unit.player.GActorId);
 				actorMessageSender.Send(message);
 			}
 		}

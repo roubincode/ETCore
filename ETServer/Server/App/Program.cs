@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Collections.Generic;
 using ETModel;
 using NLog;
 
@@ -48,6 +49,11 @@ namespace App
 				Game.Scene.AddComponent<ActorMessageSenderComponent>();
 				// 发送location actor消息
 				Game.Scene.AddComponent<ActorLocationSenderComponent>();
+
+				// db组件
+				Game.Scene.AddComponent<DBComponent>();
+				Game.Scene.AddComponent<DBCacheComponent>();
+				Game.Scene.AddComponent<DBProxyComponent>();
 					
 				// location server需要的组件
 				Game.Scene.AddComponent<LocationComponent>();
@@ -66,19 +72,17 @@ namespace App
 				// manager server组件，用来管理其它进程使用
 				Game.Scene.AddComponent<AppManagerComponent>();
 				Game.Scene.AddComponent<RealmGateAddressComponent>();
-				Game.Scene.AddComponent<GateSessionKeyComponent>();
 				
-				Game.Scene.AddComponent<PlayerComponent>();
+				// 实体组件
+				Game.Scene.AddComponent<UserComponent>();
 				Game.Scene.AddComponent<UnitComponent>();
-
+				
 				// 配置管理
 				Game.Scene.AddComponent<ConfigComponent>();
 				Game.Scene.AddComponent<ConsoleComponent>();
-
-				// 网络同步方式组件
-				Game.Scene.AddComponent<NetSyncComponent,SyncType>(SyncType.State);
 				
-				
+				long fixedUpdateInterval = (long)(EventSystem.FixedUpdateTime * 1000);
+                long timing = TimeHelper.ClientNow();
 				while (true)
 				{
 					try
@@ -86,6 +90,11 @@ namespace App
 						Thread.Sleep(1);
 						OneThreadSynchronizationContext.Instance.Update();
 						Game.EventSystem.Update();
+						if (TimeHelper.ClientNow() - timing >= fixedUpdateInterval)
+                        {
+                            timing += fixedUpdateInterval;
+                            Game.EventSystem.FixedUpdate();
+                        }
 					}
 					catch (Exception e)
 					{

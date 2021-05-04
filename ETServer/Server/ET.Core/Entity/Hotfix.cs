@@ -10,7 +10,7 @@ namespace ETModel
 {
 	public sealed class Hotfix: Object
 	{
-		private Assembly assembly;
+		// private Assembly assembly;
 
 		private IStaticMethod start;
 		private List<Type> hotfixTypes;

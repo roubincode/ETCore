@@ -31,5 +31,10 @@ namespace ETModel
 		{
 			return this.database.GetCollection<ComponentWithId>(name);
 		}
+
+		public IMongoCollection<Component> Get2Collection(string name)
+		{
+			return this.database.GetCollection<Component>(name);
+		}
 	}
 }

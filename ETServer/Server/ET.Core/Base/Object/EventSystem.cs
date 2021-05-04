@@ -14,6 +14,11 @@ namespace ETModel
 
 	public sealed class EventSystem
 	{
+		private static float FixedUpdateTimeDelta = 1f / 60;
+		public static float FixedUpdateTime
+        {
+            get{ return FixedUpdateTimeDelta;}
+		}
 		private readonly Dictionary<long, Component> allComponents = new Dictionary<long, Component>();
 
 		private readonly Dictionary<DLLType, Assembly> assemblies = new Dictionary<DLLType, Assembly>();
@@ -30,6 +35,7 @@ namespace ETModel
 		private readonly UnOrderMultiMap<Type, ILoadSystem> loadSystems = new UnOrderMultiMap<Type, ILoadSystem>();
 
 		private readonly UnOrderMultiMap<Type, IUpdateSystem> updateSystems = new UnOrderMultiMap<Type, IUpdateSystem>();
+		private readonly UnOrderMultiMap<Type, IFixedUpdateSystem> fixedUpdateSystems = new UnOrderMultiMap<Type, IFixedUpdateSystem>();
 
 		private readonly UnOrderMultiMap<Type, ILateUpdateSystem> lateUpdateSystems = new UnOrderMultiMap<Type, ILateUpdateSystem>();
 
@@ -39,6 +45,9 @@ namespace ETModel
 
 		private Queue<long> updates = new Queue<long>();
 		private Queue<long> updates2 = new Queue<long>();
+
+		private Queue<long> fixedUpdates = new Queue<long>();
+        private Queue<long> fixedUpdates2 = new Queue<long>();
 		
 		private readonly Queue<long> starts = new Queue<long>();
 
@@ -70,6 +79,7 @@ namespace ETModel
 			this.awakeSystems.Clear();
 			this.lateUpdateSystems.Clear();
 			this.updateSystems.Clear();
+			this.fixedUpdateSystems.Clear();
 			this.startSystems.Clear();
 			this.loadSystems.Clear();
 			this.changeSystems.Clear();
@@ -95,6 +105,9 @@ namespace ETModel
 					case IUpdateSystem updateSystem:
 						this.updateSystems.Add(updateSystem.Type(), updateSystem);
 						break;
+					case IFixedUpdateSystem fixedUpdateSystem:
+                        this.fixedUpdateSystems.Add(fixedUpdateSystem.Type(), fixedUpdateSystem);
+                        break;
 					case ILateUpdateSystem lateUpdateSystem:
 						this.lateUpdateSystems.Add(lateUpdateSystem.Type(), lateUpdateSystem);
 						break;
@@ -175,6 +188,11 @@ namespace ETModel
 			{
 				this.updates.Enqueue(component.InstanceId);
 			}
+
+			if (this.fixedUpdateSystems.ContainsKey(type))
+            {
+                this.fixedUpdates.Enqueue(component.InstanceId);
+            }
 
 			if (this.startSystems.ContainsKey(type))
 			{
@@ -513,8 +531,48 @@ namespace ETModel
 				}
 			}
 
+			// 双队列交替遍历，可以在一次循环中遍历所有新增的update组件
 			ObjectHelper.Swap(ref this.updates, ref this.updates2);
 		}
+
+		public void FixedUpdate()
+        {
+            while (this.fixedUpdates.Count > 0)
+            {
+                long instanceId = this.fixedUpdates.Dequeue();
+                Component component;
+                if (!this.allComponents.TryGetValue(instanceId, out component))
+                {
+                    continue;
+                }
+                if (component.IsDisposed)
+                {
+                    continue;
+                }
+
+                List<IFixedUpdateSystem> iFixedUpdateSystems = this.fixedUpdateSystems[component.GetType()];
+                if (iFixedUpdateSystems == null)
+                {
+                    continue;
+                }
+
+                this.fixedUpdates2.Enqueue(instanceId);
+
+                foreach (IFixedUpdateSystem ifixedUpdateSystem in iFixedUpdateSystems)
+                {
+                    try
+                    {
+                        ifixedUpdateSystem.Run(component);
+                    }
+                    catch (Exception e)
+                    {
+                        Log.Error(e);
+                    }
+                }
+            }
+
+            ObjectHelper.Swap(ref this.fixedUpdates, ref this.fixedUpdates2);
+        }
 
 		public void LateUpdate()
 		{

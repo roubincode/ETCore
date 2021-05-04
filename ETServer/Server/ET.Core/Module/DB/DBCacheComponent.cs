@@ -146,5 +146,15 @@ namespace ETModel
 
 			return tcs.Task;
 		}
+
+		public Task<List<Component>> Get2Json(string collectionName, string json)
+		{
+			TaskCompletionSource<List<Component>> tcs = new TaskCompletionSource<List<Component>>();
+			
+			DBQuery2JsonTask dbQueryJsonTask = ComponentFactory.Create<DBQuery2JsonTask, string, string, TaskCompletionSource<List<Component>>>(collectionName, json, tcs);
+			this.tasks[(int)((ulong)dbQueryJsonTask.Id % taskCount)].Add(dbQueryJsonTask);
+
+			return tcs.Task;
+		}
 	}
 }

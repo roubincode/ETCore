@@ -17,23 +17,12 @@ namespace ETHotfix
 			{
 				case IFrameMessage iFrameMessage: // 如果是帧消息，构造成OneFrameMessage发给对应的unit
 				{
-					long unitId = session.GetComponent<SessionPlayerComponent>().Player.UnitId;
-					ActorLocationSender actorLocationSender = Game.Scene.GetComponent<ActorLocationSenderComponent>().Get(unitId);
-
-					// 这里设置了帧消息的id，防止客户端伪造
-					iFrameMessage.Id = unitId;
-
-					OneFrameMessage oneFrameMessage = new OneFrameMessage
-					{
-						Op = opcode,
-						AMessage = ByteString.CopyFrom(session.Network.MessagePacker.SerializeTo(iFrameMessage))
-					};
-					Game.Scene.GetComponent<ServerFrameComponent>().Add(oneFrameMessage);
+					// ...
 					return;
 				}
 				case IActorLocationRequest actorLocationRequest: // gate session收到actor rpc消息，先向actor 发送rpc请求，再将请求结果返回客户端
 				{
-					long unitId = session.GetComponent<SessionPlayerComponent>().Player.UnitId;
+					long unitId = session.GetComponent<SessionUserComponent>().User.UnitId;
 					ActorLocationSender actorLocationSender = Game.Scene.GetComponent<ActorLocationSenderComponent>().Get(unitId);
 
 					int rpcId = actorLocationRequest.RpcId; // 这里要保存客户端的rpcId
@@ -51,14 +40,14 @@ namespace ETHotfix
 				}
 				case IActorLocationMessage actorLocationMessage:
 				{
-					long unitId = session.GetComponent<SessionPlayerComponent>().Player.UnitId;
+					long unitId = session.GetComponent<SessionUserComponent>().User.UnitId;
 					ActorLocationSender actorLocationSender = Game.Scene.GetComponent<ActorLocationSenderComponent>().Get(unitId);
 					actorLocationSender.Send(actorLocationMessage);
 					break;
 				}
 				case IActorRequest iActorRequest: 
 				{
-					long actorId = session.GetComponent<SessionPlayerComponent>().Player.ActorID;
+					long actorId = session.GetComponent<SessionUserComponent>().User.ActorId;
 					ActorMessageSender actorMessageSender = Game.Scene.GetComponent<ActorMessageSenderComponent>().Get(actorId);
 
 					int rpcId = iActorRequest.RpcId; // 这里要保存客户端的rpcId
@@ -70,7 +59,7 @@ namespace ETHotfix
 				}
 				case IActorMessage iActorMessage: 
 				{
-					long actorId = session.GetComponent<SessionPlayerComponent>().Player.ActorID;
+					long actorId = session.GetComponent<SessionUserComponent>().User.ActorId;
 					ActorMessageSender actorMessageSender = Game.Scene.GetComponent<ActorMessageSenderComponent>().Get(actorId);
 					actorMessageSender.Send(iActorMessage);
 					return;

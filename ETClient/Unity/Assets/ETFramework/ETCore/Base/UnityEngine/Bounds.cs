@@ -1,4 +1,4 @@
-#if Server
+#if SERVER
 using System;
 using System.Globalization;
 using System.Runtime.InteropServices;
